@@ -50,7 +50,7 @@
         .dashboard-container {
             min-height: 100%;
             position: relative;
-            padding-bottom: 0!important;
+            padding-bottom: 0 !important;
         }
 
 
@@ -60,9 +60,6 @@
             }
         }
 
-        .event {
-            padding: 0 !important;
-        }
 
         .title {
             color: black !important;
@@ -109,6 +106,38 @@
 
         .center {
             text-align: center;
+        }
+
+        .material-input {
+            color: black;
+        }
+
+        .btn.event {
+            font: 100% SFProRegular;
+            margin: 0;
+            padding: 0.5em !important;
+        }
+
+        .custom-file-uploader {
+            position: relative;
+        }
+
+        input[type='file'] {
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 5;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: default;
+        }
+
+        #price {
+            font-size: 1.5em;
         }
     </style>
 </head>
@@ -171,10 +200,6 @@
                             <div class="bottom-line npc mx-auto mt-1"></div>
                         </div>
                     </div>
-                    <div class="alert alert-info mt-4">
-                        Sertifikat dapat didownload di link berikut ini
-                        <div style="margin-top: 8px;">- <a target="_blank" href='https://schematics.its.ac.id/dashboard/sertifikat/416'><b>Anvaqta Tangguh Wisesa</b></a></div>
-                    </div>
                     <hr class="mt-5">
                     <div class="row mt-4">
                         <div class="col">
@@ -184,6 +209,40 @@
                     </div>
                     <div class="row">
                         <div class="col">
+                            <div class="alert alert-danger">
+                                <b>Mohon selesaikan proses pembayaran.</b>
+                            </div>
+                            <div class="alert alert-success">
+                                <div>
+                                    Transfer sebesar <span id="price"><b>Rp. 50.</b><b class="text-dark bg-success">640</b><b>,-</b></span>
+                                    <br>Ke rekening
+                                    <li style="margin-top:1em;">Mandiri</li>
+                                    A.n : santoso <br>
+                                    No.Rekening : 69696969
+                                    <li style="margin-top:1em;">BNI</li>
+                                    A.n : santoso <br>
+                                    No.Rekening : 69696969
+                                    <br><br>
+                                    Kemudian Lakukan konfrimasi dengan mengunggah bukti pembayaran pada form dibawah
+                                </div>
+                            </div>
+                            <form class="form" action="#" method="POST">
+                                <!-- <p>Kartu Pelajar/Mahasiswa </p> -->
+                                <div class="form-group">
+                                    <label for="file" class="sr-only">File</label>
+                                    <div class="input-group">
+                                        <input type="text" name="filename2" class="form-control" placeholder="Upload Bukti Pembayaran" readonly>
+                                        <span class="input-group-btn">
+                                            <div class="btn btn-light custom-file-uploader">
+                                                <input type="file" name="filebukti" onchange="this.form.filename2.value = this.files.length ? this.files[0].name : ''" />
+                                                Select a file
+                                            </div>
+                                        </span>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn event btn-npc">Simpan</button>
+                            </form>
+                            <br>
                             <div class="nama"><b>Anvaqta Tangguh Wisesa</b></div>
                             <ul class="info mt-2">
                                 <li>
@@ -225,8 +284,6 @@
                             </ul>
                         </div>
                     </div>
-
-
                     <div class="row mt-4">
                         <div class="col">
                             <div class="title">Informasi</div>
