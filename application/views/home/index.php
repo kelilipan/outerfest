@@ -47,7 +47,7 @@
 					</div>
 				</li>
 				<li class="nav-item nav-login">
-					<a class="scroll nav-link" href="#">LOGIN</a>
+					<a class="scroll nav-link" href="<?= base_url(); ?>home/login">LOGIN</a>
 				</li>
 			</ul>
 		</div>

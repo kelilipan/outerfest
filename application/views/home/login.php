@@ -6,18 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Login - OUTERFEST(an Interfest 2.0)</title>
-    <link rel="stylesheet" href="../../../assets/css/bootstrap.css" />
-    <link rel="stylesheet" href="../../../assets/css/main.css" />
-    <link rel="stylesheet" href="../../../assets/css/animations.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/css/bootstrap.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>assets/css/main.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>assets/css/animations.css">
     <link rel="stylesheet" type="text/css" href="https://schematics.its.ac.id/css/materialform.css">
     <style>
         .form {
             position: relative;
             z-index: 99;
         }
+
         #register .form {
-           width: 80%;
+            width: 80%;
         }
+
         #nav-tab a {
             display: flex;
             height: 50px;
@@ -45,29 +47,18 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-nav-primary">
         <a class="navbar-brand" href="#">
-            <img src="../../../assets/img/outerfest_logo_sml.png" alt="logo" />
+            <img src="<?= base_url() ?>assets/img/outerfest_logo_sml.png" alt="logo" />
         </a>
-        <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#collapsibleNavbar">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="#">HOME</a>
+                    <a class="scroll nav-link" href="<?= base_url()?>home/index">HOME</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a
-                        class="nav-link dropdown-toggle"
-                        href="#"
-                        id="navbarDropdown"
-                        role="button"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         EVENT
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -133,7 +124,7 @@
     <section id="footer">
         <div class="mesh"></div>
         <div class="logo">
-            <img src="../../../assets/img/sp.png" alt="logo">
+            <img src="<?= base_url() ?>assets/img/sp.png" alt="logo">
         </div>
         <div class="sosmed">
             <a href="#" target="_blank"><img src="https://schematics.its.ac.id/img/ic_line.png" alt="line"></a>
@@ -150,32 +141,32 @@
 
     <div id="sponsor">
         <div class="sponsor1">
-            <img src="../../../assets/img/sp.png" class="sponsor1child">
-            <img src="../../../assets/img/sp.png" class="sponsor1child">
-            <img src="../../../assets/img/sp.png" class="sponsor1child">
-            <img src="../../../assets/img/sp.png" class="sponsor1child">
+            <img src="<?= base_url() ?>assets/img/sp.png" class="sponsor1child">
+            <img src="<?= base_url() ?>assets/img/sp.png" class="sponsor1child">
+            <img src="<?= base_url() ?>assets/img/sp.png" class="sponsor1child">
+            <img src="<?= base_url() ?>assets/img/sp.png" class="sponsor1child">
+
         </div>
         <div class="sponsor2">
-            <img src="../../../assets/img/sp.png" class="sponsor2child">
-            <img src="../../../assets/img/sp.png" class="sponsor2child">
-            <img src="../../../assets/img/sp.png" class="sponsor2child">
-            <img src="../../../assets/img/sp.png" class="sponsor2child">
-            <img src="../../../assets/img/sp.png" class="sponsor2child">
+            <img src="<?= base_url() ?>assets/img/sp.png" class="sponsor2child">
+            <img src="<?= base_url() ?>assets/img/sp.png" class="sponsor2child">
+            <img src="<?= base_url() ?>assets/img/sp.png" class="sponsor2child">
+            <img src="<?= base_url() ?>assets/img/sp.png" class="sponsor2child">
         </div>
         <div class="sponsor3">
             <a href="https://idcloudhost.com/" target="_blank">
-                <img src="../../../assets/img/sp.png" class="sponsor3child">
+                <img src="<?= base_url() ?>assets/img/sp.png" class="sponsor3child">
             </a>
-            <img src="../../../assets/img/sp.png" class="sponsor3child">
-            <img src="../../../assets/img/sp.png" class="sponsor3child">
+            <img src="<?= base_url() ?>assets/img/sp.png" class="sponsor3child">
+            <img src="<?= base_url() ?>assets/img/sp.png" class="sponsor3child">
         </div>
     </div>
     <!-- SCRIPT HERE -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="../../../assets/js/main.js"></script>
-    <script type="text/javascript" src="../../../assets/js/css3-animate-it.js"></script>
+    <script src="<?= base_url() ?>assets/js/main.js"></script>
+    <script type="text/javascript" src="<?= base_url() ?>assets/js/css3-animate-it.js"></script>
 
 </body>
 
