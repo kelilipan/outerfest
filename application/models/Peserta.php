@@ -71,4 +71,13 @@ class Peserta extends CI_Model
         ];
         $this->db->insert('peserta', $data);
     }
+    public function getPeserta()
+    {
+        return $this->db->get_where('peserta', ['email' => $this->input->post('email', true)])->row_array();
+    }
+    public function getPesertaByEmail($email)
+    {
+        // akwokaowkokaokw
+        return $this->db->get_where('peserta', ['email' => $email])->row_array();
+    }
 }

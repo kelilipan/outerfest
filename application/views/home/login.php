@@ -55,7 +55,7 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="#">HOME</a>
+                    <a class="scroll nav-link" href="<?= base_url(); ?>">HOME</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -69,7 +69,7 @@
                     </div>
                 </li>
                 <li class="nav-item nav-login">
-                    <a class="scroll nav-link" href="#">LOGIN</a>
+                    <a class="scroll nav-link" href="<?= base_url('Home/login'); ?>">LOGIN</a>
                 </li>
             </ul>
         </div>
@@ -84,6 +84,11 @@
                 Pendaftaran berhasil
             </div>';
         }
+        if ($this->session->flashdata('message')) {
+            echo '<div class="alert alert-dark" role="alert">
+                ' + $this->session->flashdata('message') + '
+            </div>';
+        }
         ?>
         <div class="form">
             <div>
@@ -95,9 +100,9 @@
             <div class="tab-content text-white" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-npc" role="tabpanel" aria-labelledby="nav-login-npc">
                     <div id="loginnlc">
-                        <form class="form" action="#" method="POST">
+                        <form class="form" action="login" method="POST">
                             <div class="material-form npc">
-                                <input type="text" class="material-input" name="username" required>
+                                <input type="text" class="material-input" name="email" required>
                                 <label class="material-label">Email</label>
                             </div>
                             <div class="material-form npc ">
@@ -110,9 +115,9 @@
                 </div>
                 <div class="tab-pane fade" id="nav-nlc" role="tabpanel" aria-labelledby="nav-login-nlc">
                     <div id="loginnpc">
-                        <form class="form" action="#" method="POST">
+                        <form class="form" action="login" method="POST">
                             <div class="material-form nlc">
-                                <input type="text" class="material-input" name="username" required>
+                                <input type="text" class="material-input" name="email" required>
                                 <label class="material-label">Email</label>
                             </div>
                             <div class="material-form nlc">

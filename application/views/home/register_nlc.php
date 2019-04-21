@@ -102,7 +102,7 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="#">HOME</a>
+                    <a class="scroll nav-link" href="<?= base_url(); ?>">HOME</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -116,7 +116,7 @@
                     </div>
                 </li>
                 <li class="nav-item nav-login">
-                    <a class="scroll nav-link" href="#">LOGIN</a>
+                    <a class="scroll nav-link" href="<?= base_url('Home/login'); ?>">LOGIN</a>
                 </li>
             </ul>
         </div>

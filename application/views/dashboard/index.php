@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Dashboard - OUTERFEST(an Interfest 2.0)</title>
-    <link rel="stylesheet" href="../../../assets/css/bootstrap.css" />
-    <link rel="stylesheet" href="../../../assets/css/main.css" />
-    <link rel="stylesheet" href="../../../assets/css/animations.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/bootstrap.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/main.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/animations.css">
     <link rel="stylesheet" type="text/css" href="https://schematics.its.ac.id/css/materialform.css">
     <style>
         .form {
@@ -146,7 +146,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-nav-primary dashboard-nav">
         <div class="mesh"></div>
         <a class="navbar-brand" href="#">
-            <img src="../../../assets/img/outerfest_logo_sml.png" alt="logo">
+            <img src="<?= base_url(); ?>assets/img/outerfest_logo_sml.png" alt="logo">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
@@ -154,21 +154,21 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="#">DASHBOARD</a>
+                    <a class="scroll nav-link" href="<?= base_url('user'); ?>">DASHBOARD</a>
                 </li>
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="#">PENGUMUMAN</a>
+                    <a class="scroll nav-link" href="<?= base_url('user'); ?>/pengumuman">PENGUMUMAN</a>
                 </li>
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="#">TIMELINE</a>
+                    <a class="scroll nav-link" href="<?= base_url('user'); ?>/timeline">TIMELINE</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         AKUN
                     </a>
                     <div class="dropdown-menu dashboard-dropdown" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Ganti Password</a>
-                        <a class="dropdown-item" href="#logout">Logout</a>
+                        <a class="dropdown-item" href="<?= base_url('user'); ?>/ganti_password">Ganti Password</a>
+                        <a class="dropdown-item" href="<?= base_url('user'); ?>/logout">Logout</a>
                     </div>
                 </li>
                 <li class="nav-item ">
@@ -184,154 +184,115 @@
     <div class="dashboard-container">
         <div style="min-height: 100%;padding-bottom: 5rem;">
             <div class="alert alert-secondary">
-                Selamat datang, <b>Anvaqta Tangguh Wisesa</b> !
+                Selamat datang, <b><?= $loggedin['nama'] ?></b> !
             </div>
-
             <section id="header" class="mt-5">
                 <div class="mx-auto mb-4 center">
-                    <div class="title-event npc npclogo">NPC</div>
+                    <?php
+                    if ($this->session->userdata('id_event') == 3) {
+                        echo '<div class="title-event nlc npclogo">NLC</div>';
+                    } else {
+                        echo '<div class="title-event npc npclogo">NPC</div>';
+                    }
+                    ?>
+
                 </div>
             </section>
             <section class="event">
                 <div class="container">
                     <div class="row">
                         <div class="col text-center">
-                            <div class="title">ANVAQTA TANGGUH WISESA <span class="subtitle">&lt;NPC0001640&gt;</span></div>
-                            <div class="bottom-line npc mx-auto mt-1"></div>
+                            <div class="title"><?= strtoupper($loggedin['nama']); ?> <span class="subtitle">&lt;<?= strtoupper($eventName), sprintf("%06d", $loggedin['id_peserta']); ?>&gt;</span></div>
+                            <div class="bottom-line <?= $eventName ?> mx-auto mt-1"></div>
                         </div>
                     </div>
                     <hr class="mt-5">
                     <div class="row mt-4">
                         <div class="col">
                             <div class="title">Data Diri</div>
-                            <div class="bottom-line npc mt-1"></div>
+                            <div class="bottom-line <?= $eventName ?> mt-1"></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <div class="alert alert-danger">
-                                <b>Mohon selesaikan proses pembayaran.</b>
-                            </div>
-                            <div class="alert alert-success">
-                                <div>
-                                    Transfer sebesar <span id="price"><b>Rp. 50.</b><b class="text-dark bg-success">640</b><b>,-</b></span>
-                                    <br>Ke rekening
-                                    <li style="margin-top:1em;">Mandiri</li>
-                                    A.n : santoso <br>
-                                    No.Rekening : 69696969
-                                    <li style="margin-top:1em;">BNI</li>
-                                    A.n : santoso <br>
-                                    No.Rekening : 69696969
-                                    <br><br>
-                                    Kemudian Lakukan konfrimasi dengan mengunggah bukti pembayaran pada form dibawah
-                                </div>
-                            </div>
-                            <form class="form" action="#" method="POST">
-                                <!-- <p>Kartu Pelajar/Mahasiswa </p> -->
-                                <div class="form-group">
-                                    <label for="file" class="sr-only">File</label>
-                                    <div class="input-group">
-                                        <input type="text" name="filename2" class="form-control" placeholder="Upload Bukti Pembayaran" readonly>
-                                        <span class="input-group-btn">
-                                            <div class="btn btn-light custom-file-uploader">
-                                                <input type="file" name="filebukti" onchange="this.form.filename2.value = this.files.length ? this.files[0].name : ''" />
-                                                Select a file
-                                            </div>
-                                        </span>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn event btn-npc">Simpan</button>
-                            </form>
-                            <br>
-                            <div class="nama"><b>Anvaqta Tangguh Wisesa</b></div>
+                            <?php
+                            if ($loggedin['status'] == 1) {
+                                $this->load->view('dashboard/info_pembayaran');
+                            } else if ($loggedin['status'] == 2) {
+                                echo '<div class="alert alert-warning">
+                                        <b>Pembayaran anda sedang diproses.</b>
+                                      </div>';
+                            }
+                            ?>
+                            <div class="nama"><b><?= ucwords($loggedin['nama']); ?></b></div>
                             <ul class="info mt-2">
                                 <li>
                                     <div class="row">
                                         <div class="col-3 col-sm-2">Email</div>
-                                        <div class="col-9 col-sm-10">:&nbsp;&nbsp;&nbsp;kak.tangguh@gmail.com</div>
+                                        <div class="col-9 col-sm-10">:&nbsp;&nbsp;&nbsp;<?= $loggedin['email'] ?></div>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="row">
                                         <div class="col-3 col-sm-2">Telp</div>
-                                        <div class="col-9 col-sm-10">:&nbsp;&nbsp;&nbsp;082226808866</div>
+                                        <div class="col-9 col-sm-10">:&nbsp;&nbsp;&nbsp;<?= $loggedin['nohp'] ?></div>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="row">
                                         <div class="col-3 col-sm-2">ID Line</div>
-                                        <div class="col-9 col-sm-10">:&nbsp;&nbsp;&nbsp;anvaqta</div>
+                                        <div class="col-9 col-sm-10">:&nbsp;&nbsp;&nbsp;<?= $loggedin['idline'] ?></div>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="row">
                                         <div class="col-3 col-sm-2">Asal Universitas</div>
-                                        <div class="col-9 col-sm-10">:&nbsp;&nbsp;&nbsp;Telkom University</div>
+                                        <div class="col-9 col-sm-10">:&nbsp;&nbsp;&nbsp;<?= $loggedin['instansi'] ?></div>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="row">
                                         <div class="col-3 col-sm-2">Asal Daerah</div>
-                                        <div class="col-9 col-sm-10">:&nbsp;&nbsp;&nbsp;Grobogan</div>
+                                        <div class="col-9 col-sm-10">:&nbsp;&nbsp;&nbsp;<?= $loggedin['asal'] ?></div>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="row">
                                         <div class="col-3 col-sm-2">Kategori</div>
-                                        <div class="col-9 col-sm-10">:&nbsp;&nbsp;&nbsp;Senior</div>
+                                        <div class="col-9 col-sm-10">:&nbsp;&nbsp;&nbsp;<?= $event['nama'] ?></div>
                                     </div>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="row mt-4">
-                        <div class="col">
-                            <div class="title">Informasi</div>
-                            <div class="bottom-line npc mt-1"></div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <a href="https://schematics.its.ac.id/download/rulebook_npc_senior.pdf" class="btn btn-info mt-3 mt-sm-0">Download Rulebook NPC Senior</a>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col">
-                            <p>Untuk pertanyaan lebih lanjut, hubungi :
-                                <div class="row">
-                                    <div class="col-2">Rahandi</div>
-                                    <div class="col-10">:&nbsp;&nbsp;08124989477 (telp) / rahandi (line)</div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-2">Ghisa</div>
-                                    <div class="col-10">:&nbsp;&nbsp;Ghifarozarrr (line)</div>
-                                </div>
-                            </p>
-                        </div>
-                    </div>
+                    <?php
+                    if ($this->session->userdata('id_event') == 1 || $this->session->userdata('id_event') == 2) {
+                        $this->load->view('dashboard/info_npc');
+                    }
+                    ?>
                 </div>
             </section>
         </div>
         <div id="sponsor">
             <div class="sponsor1">
-                <img src="../../../assets/img/sp.png" class="sponsor1child">
-                <img src="../../../assets/img/sp.png" class="sponsor1child">
-                <img src="../../../assets/img/sp.png" class="sponsor1child">
-                <img src="../../../assets/img/sp.png" class="sponsor1child">
+                <img src="<?= base_url(); ?>assets/img/sp.png" class="sponsor1child">
+                <img src="<?= base_url(); ?>assets/img/sp.png" class="sponsor1child">
+                <img src="<?= base_url(); ?>assets/img/sp.png" class="sponsor1child">
+                <img src="<?= base_url(); ?>assets/img/sp.png" class="sponsor1child">
             </div>
             <div class="sponsor2">
-                <img src="../../../assets/img/sp.png" class="sponsor2child">
-                <img src="../../../assets/img/sp.png" class="sponsor2child">
-                <img src="../../../assets/img/sp.png" class="sponsor2child">
-                <img src="../../../assets/img/sp.png" class="sponsor2child">
-                <img src="../../../assets/img/sp.png" class="sponsor2child">
+                <img src="<?= base_url(); ?>assets/img/sp.png" class="sponsor2child">
+                <img src="<?= base_url(); ?>assets/img/sp.png" class="sponsor2child">
+                <img src="<?= base_url(); ?>assets/img/sp.png" class="sponsor2child">
+                <img src="<?= base_url(); ?>assets/img/sp.png" class="sponsor2child">
+                <img src="<?= base_url(); ?>assets/img/sp.png" class="sponsor2child">
             </div>
             <div class="sponsor3">
                 <a href="https://idcloudhost.com/" target="_blank">
-                    <img src="../../../assets/img/sp.png" class="sponsor3child">
+                    <img src="<?= base_url(); ?>assets/img/sp.png" class="sponsor3child">
                 </a>
-                <img src="../../../assets/img/sp.png" class="sponsor3child">
-                <img src="../../../assets/img/sp.png" class="sponsor3child">
+                <img src="<?= base_url(); ?>assets/img/sp.png" class="sponsor3child">
+                <img src="<?= base_url(); ?>assets/img/sp.png" class="sponsor3child">
             </div>
         </div>
     </div>
@@ -343,8 +304,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="../../../assets/js/main.js"></script>
-    <script type="text/javascript" src="../../../assets/js/css3-animate-it.js"></script>
+    <script src="<?= base_url(); ?>assets/js/main.js"></script>
+    <script type="text/javascript" src="<?= base_url(); ?>assets/js/css3-animate-it.js"></script>
 
 </body>
 

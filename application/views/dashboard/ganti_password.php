@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Dashboard - OUTERFEST(an Interfest 2.0)</title>
-    <link rel="stylesheet" href="../../../assets/css/bootstrap.css" />
-    <link rel="stylesheet" href="../../../assets/css/main.css" />
-    <link rel="stylesheet" href="../../../assets/css/animations.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/bootstrap.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/main.css" />
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/animations.css">
     <link rel="stylesheet" type="text/css" href="https://schematics.its.ac.id/css/materialform.css">
     <style>
         .form {
@@ -59,7 +59,8 @@
                 margin-left: -32px;
             }
         }
-        #sponsor{
+
+        #sponsor {
             position: absolute;
             bottom: 0;
             text-align: center;
@@ -68,9 +69,6 @@
             margin-top: 64px;
             margin-left: -5%;
             width: 100%;
-        }
-        .event {
-            padding: 0 !important;
         }
 
         .title {
@@ -126,7 +124,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-nav-primary dashboard-nav">
         <div class="mesh"></div>
         <a class="navbar-brand" href="#">
-            <img src="../../../assets/img/outerfest_logo_sml.png" alt="logo">
+            <img src="<?= base_url(); ?>assets/img/outerfest_logo_sml.png" alt="logo">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
@@ -134,21 +132,21 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="#">DASHBOARD</a>
+                    <a class="scroll nav-link" href="<?= base_url('user'); ?>">DASHBOARD</a>
                 </li>
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="#">PENGUMUMAN</a>
+                    <a class="scroll nav-link" href="<?= base_url('user'); ?>/pengumuman">PENGUMUMAN</a>
                 </li>
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="#">TIMELINE</a>
+                    <a class="scroll nav-link" href="<?= base_url('user'); ?>/timeline">TIMELINE</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         AKUN
                     </a>
                     <div class="dropdown-menu dashboard-dropdown" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Ganti Password</a>
-                        <a class="dropdown-item" href="#logout">Logout</a>
+                        <a class="dropdown-item" href="<?= base_url('user'); ?>/ganti_password">Ganti Password</a>
+                        <a class="dropdown-item" href="<?= base_url('user'); ?>/logout">Logout</a>
                     </div>
                 </li>
                 <li class="nav-item ">
@@ -164,42 +162,55 @@
     <div class="dashboard-container">
         <div style="min-height: 100%;padding-bottom: 5rem;">
             <div class="alert alert-secondary">
-                Selamat datang, <b>Anvaqta Tangguh Wisesa</b> !
+                Selamat datang, <b><?= $loggedin['nama']; ?></b> !
             </div>
+
+
             <div class="container mt-4">
                 <div class="row">
                     <div class="col">
-                        <h3 class="title">Timeline</h3>
+                        <h3 class="title">Pengumuman</h3>
                         <hr>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <img style="width: 100%" src="https://schematics.its.ac.id/img/npc_timeline_light.png" alt="Timeline NPC">
+                <form class="form" action="#" method="POST" autocomplete="off">
+                    <div class="material-form <?= $eventName ?>">
+                        <input type="password" class="material-input" name="password_current" required>
+                        <label class="material-label">Password Sekarang</label>
                     </div>
-                </div>
+                    <div class="material-form <?= $eventName ?>">
+                        <input type="password" class="material-input" name="password" required>
+                        <label class="material-label">Password Baru</label>
+                    </div>
+                    <div class="material-form <?= $eventName ?>">
+                        <input type="password" class="material-input" name="password_confirmation" required>
+                        <label class="material-label">Confirm Password</label>
+                    </div>
+
+                    <button type="submit" class="btn event btn-<?= $eventName ?>">Ganti Password</button>
+                </form>
             </div>
         </div>
         <div id="sponsor">
             <div class="sponsor1">
-                <img src="../../../assets/img/sp.png" class="sponsor1child">
-                <img src="../../../assets/img/sp.png" class="sponsor1child">
-                <img src="../../../assets/img/sp.png" class="sponsor1child">
-                <img src="../../../assets/img/sp.png" class="sponsor1child">
+                <img src="<?= base_url(); ?>assets/img/sp.png" class="sponsor1child">
+                <img src="<?= base_url(); ?>assets/img/sp.png" class="sponsor1child">
+                <img src="<?= base_url(); ?>assets/img/sp.png" class="sponsor1child">
+                <img src="<?= base_url(); ?>assets/img/sp.png" class="sponsor1child">
             </div>
             <div class="sponsor2">
-                <img src="../../../assets/img/sp.png" class="sponsor2child">
-                <img src="../../../assets/img/sp.png" class="sponsor2child">
-                <img src="../../../assets/img/sp.png" class="sponsor2child">
-                <img src="../../../assets/img/sp.png" class="sponsor2child">
-                <img src="../../../assets/img/sp.png" class="sponsor2child">
+                <img src="<?= base_url(); ?>assets/img/sp.png" class="sponsor2child">
+                <img src="<?= base_url(); ?>assets/img/sp.png" class="sponsor2child">
+                <img src="<?= base_url(); ?>assets/img/sp.png" class="sponsor2child">
+                <img src="<?= base_url(); ?>assets/img/sp.png" class="sponsor2child">
+                <img src="<?= base_url(); ?>assets/img/sp.png" class="sponsor2child">
             </div>
             <div class="sponsor3">
                 <a href="https://idcloudhost.com/" target="_blank">
-                    <img src="../../../assets/img/sp.png" class="sponsor3child">
+                    <img src="<?= base_url(); ?>assets/img/sp.png" class="sponsor3child">
                 </a>
-                <img src="../../../assets/img/sp.png" class="sponsor3child">
-                <img src="../../../assets/img/sp.png" class="sponsor3child">
+                <img src="<?= base_url(); ?>assets/img/sp.png" class="sponsor3child">
+                <img src="<?= base_url(); ?>assets/img/sp.png" class="sponsor3child">
             </div>
         </div>
     </div>
@@ -211,8 +222,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="../../../assets/js/main.js"></script>
-    <script type="text/javascript" src="../../../assets/js/css3-animate-it.js"></script>
+    <script src="<?= base_url(); ?>assets/js/main.js"></script>
+    <script type="text/javascript" src="<?= base_url(); ?>assets/js/css3-animate-it.js"></script>
 
 </body>
 
