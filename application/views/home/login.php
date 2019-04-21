@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Register - OUTERFEST(an Interfest 2.0)</title>
+    <title>Login - OUTERFEST(an Interfest 2.0)</title>
     <link rel="stylesheet" href="../../../assets/css/bootstrap.css" />
     <link rel="stylesheet" href="../../../assets/css/main.css" />
     <link rel="stylesheet" href="../../../assets/css/animations.css">
@@ -17,7 +17,7 @@
         }
 
         #register .form {
-            width: 70%;
+            width: 80%;
         }
 
         #nav-tab a {
@@ -41,54 +41,6 @@
             width: 60%;
             border: 0;
         }
-
-        /* .form-container {
-            border: 2px solid white;
-            border-radius: 2px;
-            padding: 5em;
-            padding-top: 3em;
-        } */
-
-        h1 {
-            color: white;
-            font: 100% SFProBold;
-            font-size: 3rem;
-            z-index: 1;
-        }
-
-        .custom-radio {
-            margin-top: 1em;
-            margin-bottom: 1.5em;
-        }
-
-        .custom-control-label {
-            color: white;
-        }
-
-        .custom-file-uploader {
-            position: relative;
-        }
-        .custom-radio {
-            margin-top: 1em;
-            margin-bottom: 1.5em;
-        }
-        input[type='file'] {
-            display: block;
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            z-index: 5;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            cursor: default;
-        }
-        .form-control{
-            background-color: transparent!important;
-        }
-    </style>
     </style>
 </head>
 
@@ -97,11 +49,7 @@
         <a class="navbar-brand" href="#">
             <img src="../../../assets/img/outerfest_logo_sml.png" alt="logo" />
         </a>
-        <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#collapsibleNavbar">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
@@ -110,14 +58,7 @@
                     <a class="scroll nav-link" href="#">HOME</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a
-                        class="nav-link dropdown-toggle"
-                        href="#"
-                        id="navbarDropdown"
-                        role="button"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         EVENT
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -135,62 +76,54 @@
     </nav>
     <!-- end head -->
     <!-- start body -->
-    <section id="register" class="animatedParent d-flex flex-column justify-content-center">
+    <section id="register" class="d-flex flex-column justify-content-center">
         <div class="mesh"></div>
-        <div class="form-container animated fadeInUpShort">
-            <h1>Register NPC</h1>
-            <form class="form" action="#" method="POST">
-                <div class="material-form">
-                    <input type="text" class="material-input" name="name" required>
-                    <label class="material-label">Nama</label>
+        <?php
+        if ($this->session->flashdata('SuccessReg')) {
+            echo '<div class="alert alert-dark" role="alert">
+                Pendaftaran berhasil
+            </div>';
+        }
+        ?>
+        <div class="form">
+            <div>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="npc active" id="nav-login-npc" data-toggle="tab" href="#nav-npc" role="tab" aria-controls="nav-npc" aria-selected="true">Login NPC</a>
+                    <a class="nlc" id="nav-login-nlc" data-toggle="tab" href="#nav-nlc" role="tab" aria-controls="nav-nlc" aria-selected="false">Login NLC</a>
                 </div>
-                <div class="material-form">
-                    <input type="text" class="material-input" name="instansi" required>
-                    <label class="material-label">Sekolah/Instansi</label>
+            </div>
+            <div class="tab-content text-white" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-npc" role="tabpanel" aria-labelledby="nav-login-npc">
+                    <div id="loginnlc">
+                        <form class="form" action="#" method="POST">
+                            <div class="material-form npc">
+                                <input type="text" class="material-input" name="username" required>
+                                <label class="material-label">Email</label>
+                            </div>
+                            <div class="material-form npc ">
+                                <input type="password" class="material-input" name="password" required>
+                                <label class="material-label">Password</label>
+                            </div>
+                            <button type="submit" class="btn event btn-npc">Login</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="material-form">
-                    <input type="text" class="material-input" name="email" required>
-                    <label class="material-label">Email</label>
+                <div class="tab-pane fade" id="nav-nlc" role="tabpanel" aria-labelledby="nav-login-nlc">
+                    <div id="loginnpc">
+                        <form class="form" action="#" method="POST">
+                            <div class="material-form nlc">
+                                <input type="text" class="material-input" name="username" required>
+                                <label class="material-label">Email</label>
+                            </div>
+                            <div class="material-form nlc">
+                                <input type="password" class="material-input" name="password" required>
+                                <label class="material-label">Password</label>
+                            </div>
+                            <button type="submit" class="btn event btn-nlc">Login</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="material-form">
-                    <input type="text" class="material-input" name="asal" required>
-                    <label class="material-label">Asal Daerah</label>
-                </div>
-                <div class="material-form">
-                    <input type="text" class="material-input" name="nohp" required>
-                    <label class="material-label">No. HP</label>
-                </div>
-                <div class="material-form">
-                    <input type="text" class="material-input" name="idline">
-                    <label class="material-label">IDLine</label>
-                </div>
-                <div class="material-form">
-                    <input type="password" class="material-input" name="password" required>
-                    <label class="material-label">Password</label>
-                </div>
-                <div class="material-form">
-                    <input type="password" class="material-input" name="re-password" required>
-                    <label class="material-label">Re-type password</label>
-                </div>
-                <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="senior" name="category" class="custom-control-input" checked>
-                    <label class="custom-control-label" for="senior">Senior NPC</label>
-                </div>
-                <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="junior" name="category" class="custom-control-input">
-                    <label class="custom-control-label" for="junior">Junior NPC</label>
-                </div>
-                <div class="input-group">
-                    <input type="text" name="filename" class="form-control" placeholder="Upload Kartu Pelajar/Mahasiswa" readonly>
-                    <span class="input-group-btn">
-                        <div class="btn btn-dark custom-file-uploader">
-                            <input type="file" name="filekartu" onchange="this.form.filename.value = this.files.length ? this.files[0].name : ''" />
-                            Select a file
-                        </div>
-                    </span>
-                </div>
-                <button type="submit" class="btn event btn-npc">Register</button>
-            </form>
+            </div>
         </div>
     </section>
     <!-- end main -->

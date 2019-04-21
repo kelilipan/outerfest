@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------
@@ -58,7 +58,11 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
+<<<<<<< HEAD
 $autoload['libraries'] = array('database','email','session');
+=======
+$autoload['libraries'] = array('database', 'session', 'email', 'form_validation');
+>>>>>>> 41dfaceee10b5dac9d58a319917d14fa19afc181
 
 /*
 | -------------------------------------------------------------------
@@ -89,7 +93,11 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
+<<<<<<< HEAD
 $autoload['helper'] = array('url','file','security');
+=======
+$autoload['helper'] = array('url', 'file', 'security');
+>>>>>>> 41dfaceee10b5dac9d58a319917d14fa19afc181
 
 /*
 | -------------------------------------------------------------------
@@ -132,4 +140,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array();
+$autoload['model'] = array('Peserta');
