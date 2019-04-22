@@ -14,6 +14,16 @@ class User extends CI_Controller
             $this->load->view('dashboard/index', $data);
         }
     }
+    public function upload_bukti()
+    {
+        $id = $this->session->userdata('id_peserta');
+        $event = $this->session->userdata('id_event');
+        $total = 50000 + ((int)$this->session->userdata('id_peserta') % 1000);;
+        if (!$this->Peserta->upload_bukti($id, $event, $total)) {
+            $this->session->set_flashdata('message', $this->upload->display_errors());
+        };
+        redirect(base_url('user'));
+    }
     public function timeline()
     {
         if (!$this->session->userdata('email')) {

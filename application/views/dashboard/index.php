@@ -184,7 +184,7 @@
     <div class="dashboard-container">
         <div style="min-height: 100%;padding-bottom: 5rem;">
             <div class="alert alert-secondary">
-                Selamat datang, <b><?= $loggedin['nama'] ?></b> !
+                Selamat datang, <b><?= ucwords($loggedin['nama']) ?></b> !
             </div>
             <section id="header" class="mt-5">
                 <div class="mx-auto mb-4 center">
@@ -195,7 +195,6 @@
                         echo '<div class="title-event npc npclogo">NPC</div>';
                     }
                     ?>
-
                 </div>
             </section>
             <section class="event">

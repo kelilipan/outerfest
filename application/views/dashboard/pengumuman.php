@@ -154,7 +154,6 @@
                     </div>
                 </li>
                 <li class="nav-item ">
-
                 </li>
             </ul>
         </div>
@@ -168,8 +167,6 @@
             <div class="alert alert-secondary">
                 Selamat datang, <b><?= $loggedin['nama'] ?></b> !
             </div>
-
-
             <div class="container mt-4">
                 <div class="row">
                     <div class="col">

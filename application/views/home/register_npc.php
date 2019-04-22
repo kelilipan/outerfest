@@ -120,7 +120,7 @@
                     </div>
                 </li>
                 <li class="nav-item nav-login">
-                    <a class="scroll nav-link" href="<?= base_url('Home/login'); ?>">
+                    <a class="scroll nav-link" href="<?= base_url('home/login'); ?>">
                         <?php
                         if ($this->session->userdata('email')) {
                             echo "DASHBOARD";
@@ -137,8 +137,14 @@
     <section id="register" class="animatedParent d-flex flex-column justify-content-center">
         <div class="mesh"></div>
         <div class="form-container animated fadeInUpShort">
+            <?php
+            if ($this->session->flashdata('message')) {
+                echo '<div class="alert alert-dark" role="alert">
+                    ', $this->session->flashdata('message'), '
+                </div>';
+            } ?>
             <h1>Register NPC</h1>
-            <form class="form" action="register_npc" method="POST">
+            <form class="form" action="register_npc" method="POST" enctype="multipart/form-data" accept-charset="utf-8">
                 <div class="material-form npc">
                     <input type="text" class="material-input" name="nama" value="<?= set_value('nama'); ?>" required>
                     <label class="material-label">Nama</label>
@@ -185,7 +191,7 @@
                     <input type="text" name="identitas" class="form-control" placeholder="Upload Kartu Pelajar/Mahasiswa" readonly>
                     <span class="input-group-btn">
                         <div class="btn btn-dark custom-file-uploader">
-                            <input type="file" onchange="this.form.identitas.value = this.files.length ? this.files[0].name : ''" />
+                            <input type="file" name="file_identitas" onchange="this.form.identitas.value = this.files.length ? this.files[0].name : ''" />
                             Select a file
                         </div>
                     </span>
