@@ -149,10 +149,10 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="#">DASHBOARD</a>
+                    <a class="scroll nav-link" href="<?= base_url() ?>homeadmin/index">DASHBOARD</a>
                 </li>
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="<?= base_url() ?>homeadmin/peserta">PESERTA</a>
+                    <a class="scroll nav-link" href="#">PESERTA</a>
                 </li>
                 <li class="nav-item">
                     <a class="scroll nav-link" href="<?= base_url() ?>homeadmin/transaksi">TRANSAKSI</a>
@@ -187,126 +187,77 @@
                 <div class="mt-4">
                     <div class="row">
                         <div class="col">
-                            <h3 class="title">Dashboard</h3>
+                            <h3 class="title">Daftar Peserta</h3>
                             <hr>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-3 col-md-3 card text-white bg-primary">
-                            <h4>Total Tickets</h4>
-                            <h4>69</h4>
-                        </div>
-                        <div class="col-lg-3 col-md-3 card text-white bg-success">
-                            <h4>Ticket Open</h4>
-                            <h4>10</h4>
-                        </div>
-                        <div class="col-lg-3 col-md-3 text-white bg-warning card">
-                            <h4>Need Approval</h4>
-                            <h4>50</h4>
-                        </div>
-                        <div class="col-lg-3 col-md-3 card text-white bg-danger">
-                            <h4>Ticket closed</h4>
-                            <h4>9</h4>
-                        </div>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Find ur girlfriends" aria-label="Find ur girlfriends" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-primary" type="button" id="button-addon2">Search</button>
                     </div>
                 </div>
-                <h3 class="title mt-4">Need Approval</h3>
-                <hr>
-                <span>Silahkan cek pembayaran melalui bank. Jika sudah,tekan tombol approve</span>
                 <table class="table table-hover table-responsive-sm mt-3">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Nama</th>
+                            <th scope="col">Instansi</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">No hp</th>
                             <th scope="col">Event</th>
-                            <th scope="col">Bukti Pembayaran</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Waluyo bin walidi</td>
-                            <td>NPC</td>
-                            <td>
-                                <span>Rp. 50.001,-</span>
-                                <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#buktiTransferModal" data-url="1.jpg" data-idpeserta="1">view</button></td>
-                            <td>
-                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-warning">Approve</button>
-                                    <button type="button" class="btn btn-primary">Edit</button>
-                                    <button type="button" class="btn btn-primary">Detail</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Waluyo bin walidi</td>
-                            <td>NPC</td>
-                            <td>
-                                <span>Rp. 50.002,-</span>
-                                <button type="button" class="btn btn-sm btn-success">view</button></td>
-                            <td>
-                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-warning">Approve</button>
-                                    <button type="button" class="btn btn-primary">Edit</button>
-                                    <button type="button" class="btn btn-primary">Detail</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Waluyo bin walidi</td>
-                            <td>NPC</td>
-                            <td>
-                                <span>Rp. 50.003,-</span>
-                                <button type="button" class="btn btn-sm btn-success">view</button></td>
-                            <td>
-                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-warning">Approve</button>
-                                    <button type="button" class="btn btn-primary">Edit</button>
-                                    <button type="button" class="btn btn-primary">Detail</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">4</th>
-                            <td>Waluyo bin walidi</td>
-                            <td>NPC</td>
-                            <td>
-                                <span>Rp. 50.004,-</span>
-                                <button type="button" class="btn btn-sm btn-success">view</button></td>
-                            <td>
-                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-warning">Approve</button>
-                                    <button type="button" class="btn btn-primary">Edit</button>
-                                    <button type="button" class="btn btn-primary">Detail</button>
-                                </div>
-                            </td>
-                        </tr>
+
+                        <!-- // $i =1;
+                        // foreach ($editpeserta as $row =>peserta)
+                        // {
+                        //     echo "<tr>"
+                        //     echo "<th scope="row">".$i."</th>"
+                        //     echo <td>".row['nama']."</td>
+                        //     <td>".row['instansi']."</td>
+                        //     <td>".row['email']."</td>
+                        //     <td>".row['nohp']."</td>
+                        //     <td>NPC</td>
+                        //     <td>
+                        //         <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                        //             <button type="button" class="btn btn-primary">Edit</button>
+                        //             <button type="button" class="btn btn-primary">Detail</button>
+                        //         </div>
+                        //     </td>
+                        // </tr>";
+                      //  $no++;                              -->
+                        <?php
+                        foreach ($peserta as $p) {
+                            ?>
+                            <tr>
+                                <!-- <th scope="row">1</th> -->
+                                <td><?= $p->id_peserta ?></td>
+                                <td><?= $p->nama       ?></td>
+                                <td><?= $p->instansi   ?></td>
+                                <td><?= $p->email      ?></td>
+                                <td><?= $p->nohp       ?></td>
+                                <td><?= $p->id_event   ?></td>
+                                <td>
+                                    <a href="<?= base_url() ?> c_peserta/edit/" <?php echo $peserta->id; ?>>
+                                        <button type="button" class="btn btn-primary" >Edit</button>
+                                    </a>
+                                    <a href="<?= base_url() ?> c_peserta//" <?php echo $peserta->id; ?>>
+                                        <button type="button" class="btn btn-primary">Detail</button>
+                                    </a>
+                                    <!-- <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">  -->
+
+                                    <!-- </div> -->
+
+                                </td>
+                            </tr>
+                        <?php } ?>
+
                     </tbody>
                 </table>
-                <div class="modal fade" id="buktiTransferModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <span id='ex1'>
-                                    <img src='../../../assets/img/a.png' width='100%' alt='buktiTransfer'>
-                                </span>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed nesciunt, voluptatem quam nisi magnam culpa doloribus tempora sequi tempore deserunt quas facilis nemo eveniet. Aliquid labore consectetur qui id dicta!
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <ul class="pagination pagination-sm">
                     <li class="page-item">
                         <a class="page-link" href="#" aria-label="Previous">
@@ -327,7 +278,6 @@
                         </a>
                     </li>
                 </ul>
-
             </div>
         </div>
     </div>
@@ -343,26 +293,7 @@
     <script src="<?= base_url() ?>assets/js/main.js"></script>
     <script src="<?= base_url() ?>assets/js/jquery.zoom.js"></script>
     <script type="text/javascript" src="<?= base_url() ?>assets/js/css3-animate-it.js"></script>
-    <script>
-        $(document).ready(function() {
-            // $('#ex1').zoom();
-            $('#ex1')
-                .wrap('<span style="display:inline-block"></span>')
-                .css('display', 'block')
-                .parent()
-                .zoom();
-        });
-        $('#buktiTransferModal').on('show.bs.modal', function(event) {
-            var button = $(event.relatedTarget) // Button that triggered the modal
-            var file = button.data('url') // Extract info from data-* attributes
-            var id = button.data('idpeserta')
-            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-            var modal = $(this)
-            modal.find('.modal-title').text(id)
-            modal.find('.modal-body img').attr('src', '<?= base_url() ?>assets/img/' + file)
-        })
-    </script>
+
 </body>
 
 </html>

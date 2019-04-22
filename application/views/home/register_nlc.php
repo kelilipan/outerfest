@@ -127,49 +127,52 @@
         <div class="mesh"></div>
         <div class="form-container animated fadeInUpShort">
             <h1>Register NLC</h1>
-            <form class="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
-                <div class="material-form">
-                    <input type="text" class="material-input" name="name" required>
+            <form class="form" action="register_nlc" method="POST">
+                <div class="material-form nlc">
+                    <input type="text" class="material-input" name="nama" value="<?= set_value('nama'); ?>" required>
                     <label class="material-label">Nama</label>
                 </div>
-                <div class="material-form">
-                    <input type="text" class="material-input" name="instansi" required>
+                <div class="material-form nlc">
+                    <input type="text" class="material-input" name="instansi" value="<?= set_value('instansi'); ?>" required>
                     <label class="material-label">Sekolah/Instansi</label>
                 </div>
-
-                <div class="material-form">
-                    <input type="text" class="material-input" name="email" required>
+                <div class="material-form nlc">
+                    <input type="text" class="material-input" name="email" value="<?= set_value('email'); ?>" required>
                     <label class="material-label">Email</label>
                 </div>
-                <div class="material-form">
-                    <input type="text" class="material-input" name="asal" required>
+                <?= form_error('email', '<div class="text-danger">', '</div>') ?>
+                <div class="material-form nlc">
+                    <input type="text" class="material-input" name="asal" value="<?= set_value('asal'); ?>" required>
                     <label class="material-label">Asal Daerah</label>
                 </div>
-                <div class="material-form">
-                    <input type="text" class="material-input" name="nohp" required>
+                <div class="material-form nlc">
+                    <input type="text" class="material-input" name="nohp" value="<?= set_value('nohp'); ?>" required>
                     <label class="material-label">No. HP</label>
                 </div>
-                <div class="material-form">
-                    <input type="text" class="material-input" name="idline">
+                <div class="material-form nlc">
+                    <input type="text" class="material-input" name="idline" value="<?= set_value('idline'); ?>">
                     <label class="material-label">IDLine</label>
                 </div>
-                <div class="material-form">
+                <div class="material-form nlc">
                     <input type="password" class="material-input" name="password" required>
                     <label class="material-label">Password</label>
                 </div>
-                <div class="material-form">
+                <?= form_error('password', '<div class="text-danger">', '</div>') ?>
+                <div class="material-form nlc">
                     <input type="password" class="material-input" name="re-password" required>
                     <label class="material-label">Re-type password</label>
                 </div>
+                <input type="hidden" name="category" value="3">
                 <div class="input-group">
-                    <input type="text" name="filename" class="form-control" placeholder="Upload Kartu Pelajar/Mahasiswa" readonly>
+                    <input type="text" name="identitas" class="form-control" placeholder="Upload Kartu Pelajar/Mahasiswa" readonly>
                     <span class="input-group-btn">
                         <div class="btn btn-dark custom-file-uploader">
-                            <input type="file" name="filekartu" onchange="this.form.filename.value = this.files.length ? this.files[0].name : ''" />
+                            <input type="file" onchange="this.form.identitas.value = this.files.length ? this.files[0].name : ''" />
                             Select a file
                         </div>
                     </span>
                 </div>
+                <?= form_error('identitas', '<div class="text-danger">', '</div>') ?>
                 <button type="submit" class="btn event btn-nlc">Register</button>
             </form>
         </div>

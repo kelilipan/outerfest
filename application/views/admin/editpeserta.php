@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Login - OUTERFEST(an Interfest 2.0)</title>
+    <title>EditPeserta - OUTERFEST(an Interfest 2.0)</title>
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/bootstrap.css" />
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/main.css" />
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/animations.css">
@@ -17,7 +17,7 @@
         }
 
         #register .form {
-            width: 80%;
+            width: 70%;
         }
 
         #nav-tab a {
@@ -41,7 +41,54 @@
             width: 60%;
             border: 0;
         }
+
+        /* .form-container {
+            border: 2px solid white;
+            border-radius: 2px;
+            padding: 5em;
+            padding-top: 3em;
+        } */
+
+        h1 {
+            color: white;
+            font: 100% SFProBold;
+            font-size: 3rem;
+            z-index: 1;
+        }
+
+        .custom-radio {
+            margin-top: 1em;
+            margin-bottom: 1.5em;
+        }
+
+        .custom-file-uploader {
+            position: relative;
+        }
+
+        input[type='file'] {
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 5;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: default;
+        }
+
+        .form-control {
+            background-color: transparent !important;
+            border: 1px solid gray;
+        }
+
+        .input-group {
+            margin-top: 1em;
+        }
     </style>
+
 </head>
 
 <body>
@@ -55,7 +102,7 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="<?= base_url()?>home/index">HOME</a>
+                    <a class="scroll nav-link" href="<?= base_url() ?>home/index">HOME</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -69,61 +116,65 @@
                     </div>
                 </li>
                 <li class="nav-item nav-login">
-                    <a class="scroll nav-link" href="#">LOGIN</a>
+                    <a class="scroll nav-link" href="<?= base_url() ?>home/login">LOGIN</a>
                 </li>
             </ul>
         </div>
     </nav>
     <!-- end head -->
     <!-- start body -->
-    <section id="register" class="d-flex flex-column justify-content-center">
+    <section id="register" class="animatedParent d-flex flex-column justify-content-center">
         <div class="mesh"></div>
-        <?php
-        if ($this->session->flashdata('SuccessReg')) {
-            echo '<div class="alert alert-dark" role="alert">
-                Pendaftaran berhasil
-            </div>';
-        }
-        ?>
-        <div class="form">
-            <div>
-                <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <a class="npc active" id="nav-login-npc" data-toggle="tab" href="#nav-npc" role="tab" aria-controls="nav-npc" aria-selected="true">Login NPC</a>
-                    <a class="nlc" id="nav-login-nlc" data-toggle="tab" href="#nav-nlc" role="tab" aria-controls="nav-nlc" aria-selected="false">Login NLC</a>
+        <div class="form-container animated fadeInUpShort">
+            <h1>Edit Peserta</h1>
+            <form class="form" action="register_nlc" method="POST">
+                <div class="material-form nlc">
+                    <input type="text" class="material-input" name="nama" value="<?= set_value('nama'); ?>" required>
+                    <label class="material-label">Nama</label>
                 </div>
-            </div>
-            <div class="tab-content text-white" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="nav-npc" role="tabpanel" aria-labelledby="nav-login-npc">
-                    <div id="loginnlc">
-                        <form class="form" action="#" method="POST">
-                            <div class="material-form npc">
-                                <input type="text" class="material-input" name="username" required>
-                                <label class="material-label">Email</label>
-                            </div>
-                            <div class="material-form npc ">
-                                <input type="password" class="material-input" name="password" required>
-                                <label class="material-label">Password</label>
-                            </div>
-                            <button type="submit" class="btn event btn-npc">Login</button>
-                        </form>
-                    </div>
+                <div class="material-form nlc">
+                    <input type="text" class="material-input" name="instansi" value="<?= set_value('instansi'); ?>" required>
+                    <label class="material-label">Sekolah/Instansi</label>
                 </div>
-                <div class="tab-pane fade" id="nav-nlc" role="tabpanel" aria-labelledby="nav-login-nlc">
-                    <div id="loginnpc">
-                        <form class="form" action="#" method="POST">
-                            <div class="material-form nlc">
-                                <input type="text" class="material-input" name="username" required>
-                                <label class="material-label">Email</label>
-                            </div>
-                            <div class="material-form nlc">
-                                <input type="password" class="material-input" name="password" required>
-                                <label class="material-label">Password</label>
-                            </div>
-                            <button type="submit" class="btn event btn-nlc">Login</button>
-                        </form>
-                    </div>
+                <div class="material-form nlc">
+                    <input type="text" class="material-input" name="email" value="<?= set_value('email'); ?>" required>
+                    <label class="material-label">Email</label>
                 </div>
-            </div>
+                <?= form_error('email', '<div class="text-danger">', '</div>') ?>
+                <div class="material-form nlc">
+                    <input type="text" class="material-input" name="asal" value="<?= set_value('asal'); ?>" required>
+                    <label class="material-label">Asal Daerah</label>
+                </div>
+                <div class="material-form nlc">
+                    <input type="text" class="material-input" name="nohp" value="<?= set_value('nohp'); ?>" required>
+                    <label class="material-label">No. HP</label>
+                </div>
+                <div class="material-form nlc">
+                    <input type="text" class="material-input" name="idline" value="<?= set_value('idline'); ?>">
+                    <label class="material-label">IDLine</label>
+                </div>
+                <div class="material-form nlc">
+                    <input type="password" class="material-input" name="password" required>
+                    <label class="material-label">Password</label>
+                </div>
+                <?= form_error('password', '<div class="text-danger">', '</div>') ?>
+                <div class="material-form nlc">
+                    <input type="password" class="material-input" name="re-password" required>
+                    <label class="material-label">Re-type password</label>
+                </div>
+                <input type="hidden" name="category" value="3">
+                <div class="input-group">
+                    <input type="text" name="identitas" class="form-control" placeholder="Upload Kartu Pelajar/Mahasiswa" readonly>
+                    <span class="input-group-btn">
+                        <div class="btn btn-dark custom-file-uploader">
+                            <input type="file" onchange="this.form.identitas.value = this.files.length ? this.files[0].name : ''" />
+                            Select a file
+                        </div>
+                    </span>
+                </div>
+                <?= form_error('identitas', '<div class="text-danger">', '</div>') ?>
+                <button type="submit" class="btn event btn-nlc">Update</button>
+            </form>
         </div>
     </section>
     <!-- end main -->
@@ -152,9 +203,9 @@
             <img src="<?= base_url() ?>assets/img/sp.png" class="sponsor1child">
             <img src="<?= base_url() ?>assets/img/sp.png" class="sponsor1child">
             <img src="<?= base_url() ?>assets/img/sp.png" class="sponsor1child">
-
         </div>
         <div class="sponsor2">
+            <img src="<?= base_url() ?>assets/img/sp.png" class="sponsor2child">
             <img src="<?= base_url() ?>assets/img/sp.png" class="sponsor2child">
             <img src="<?= base_url() ?>assets/img/sp.png" class="sponsor2child">
             <img src="<?= base_url() ?>assets/img/sp.png" class="sponsor2child">
