@@ -204,66 +204,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Waluyo bin walidi</td>
-                            <td>NPC</td>
-                            <td>
-                                <span>Rp. 50.001,-</span>
-                                <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#buktiTransferModal" data-url="1.jpg" data-idpeserta="1">view</button></td>
-                            <td>
-                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-success btn-disabled">Approved</button>
-                                    <button type="button" class="btn btn-primary">Edit</button>
-                                    <button type="button" class="btn btn-primary">Detail</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Waluyo bin walidi</td>
-                            <td>NPC</td>
-                            <td>
-                                <span>Rp. 50.002,-</span>
-                                <button type="button" class="btn btn-sm btn-success">view</button></td>
-                            <td>
-                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-warning">Approve</button>
-                                    <button type="button" class="btn btn-primary">Edit</button>
-                                    <button type="button" class="btn btn-primary">Detail</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Waluyo bin walidi</td>
-                            <td>NPC</td>
-                            <td>
-                                <span>Rp. 50.003,-</span>
-                                <button type="button" class="btn btn-sm btn-success">view</button></td>
-                            <td>
-                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-warning">Approve</button>
-                                    <button type="button" class="btn btn-primary">Edit</button>
-                                    <button type="button" class="btn btn-primary">Detail</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">4</th>
-                            <td>Waluyo bin walidi</td>
-                            <td>NPC</td>
-                            <td>
-                                <span>Rp. 50.004,-</span>
-                                <button type="button" class="btn btn-sm btn-success">view</button></td>
-                            <td>
-                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-warning">Approve</button>
-                                    <button type="button" class="btn btn-primary">Edit</button>
-                                    <button type="button" class="btn btn-primary">Detail</button>
-                                </div>
-                            </td>
-                        </tr>
+                        <?php foreach ($transaksi as $d) { ?>
+                            <tr>
+                                <th scope="row"><?= $d['id_buktitransfer'] ?></th>
+                                <td><?= $d['nama_peserta'] ?></td>
+                                <td><?= $d['nama_event'] ?></td>
+                                <td>
+                                    <span>Rp. <?= $d['total'] ?>,-</span>
+                                    <button type="button" class="btn btn-sm btn-success">view</button></td>
+                                <td>
+                                    <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-warning">Approve</button>
+                                        <button type="button" class="btn btn-primary">Edit</button>
+                                        <button type="button" class="btn btn-primary">Detail</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
                 <div class="modal fade" id="buktiTransferModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

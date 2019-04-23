@@ -112,7 +112,7 @@ class Peserta extends CI_Model
     public function upload_bukti($id, $event, $total)
     {
 
-        $config['upload_path']          = './uploads/identitas';
+        $config['upload_path']          = './uploads/bukti_transfer';
         $config['allowed_types']        = 'gif|jpg|jpeg|png|pdf';
         $config['max_size']             = 0;
         $config['max_width']            = 0;
@@ -127,7 +127,7 @@ class Peserta extends CI_Model
             //ga error
             $info = $this->upload->data();
             $data1 = array(
-                'url' => base_url('uploads/bukti_transfer') . $info['file_name'],
+                'url' => base_url('uploads/bukti_transfer/') . $info['file_name'],
                 'id_peserta' => $id,
                 'id_event' => $event,
                 'total' => $total

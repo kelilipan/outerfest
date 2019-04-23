@@ -219,7 +219,7 @@
                                 <td><?= $d['instansi'] ?></td>
                                 <td><?= $d['email'] ?></td>
                                 <td><?= $d['nohp'] ?></td>
-                                <td><?= $d['id_event'] ?></td>
+                                <td><?= strtoupper($this->Events->getEventNameById($d['id_event'])) ?></td>
                                 <td>
                                     <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
                                         <button type="button" class="btn btn-primary">Edit</button>

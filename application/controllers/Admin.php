@@ -79,7 +79,12 @@ class Admin extends CI_Controller
     }
     public function transaksi()
     {
-        $this->load->view('admin/transaksi');
+        $this->db->select('bukti_transfer.*,peserta.nama as nama_peserta,events.nama as nama_event');
+        $this->db->from('bukti_transfer');
+        $this->db->join('peserta', 'bukti_transfer.id_peserta = peserta.id_peserta', 'LEFT');
+        $this->db->join('events', 'bukti_transfer.id_event = events.id_event', 'LEFT');
+        $data['transaksi'] = $this->db->get()->result_array();
+        $this->load->view('admin/transaksi', $data);
     }
     public function logout()
     {
