@@ -58,7 +58,7 @@ class Admin extends CI_Controller
                 // echo "salah pass";
             } else {
                 $data = [
-                    'id_admin' => $admin['id_peserta'],
+                    'id_admin' => $admin['id_admin'],
                     'emailAdmin' => $admin['email'],
                     'namaAdmin' => $admin['nama']
                 ];
@@ -85,5 +85,10 @@ class Admin extends CI_Controller
     {
         session_destroy();
         redirect(base_url());
+    }
+    public function addPengumuman()
+    {
+        $this->Pengumuman->addPengumuman();
+        redirect('admin/pengumuman');
     }
 }

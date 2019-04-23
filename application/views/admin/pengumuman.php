@@ -246,7 +246,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="pengumumanBaru">
+                    <form id="pengumumanBaru" action="addPengumuman" method="POST">
                         <div class="form-group">
                             <label for="judul">Judul</label>
                             <input type="text" name="title" class="form-control" id="judul" placeholder="Judul pengumuman">
