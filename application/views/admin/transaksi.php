@@ -210,11 +210,17 @@
                                 <td><?= $d['nama_peserta'] ?></td>
                                 <td><?= $d['nama_event'] ?></td>
                                 <td>
-                                    <span>Rp. <?= $d['total'] ?>,-</span>
+                                    <span>Rp. 50.<?= sprintf('%03d', ($d['total'] - 50000) % 1000) ?>,-</span>
                                     <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#buktiTransferModal" data-url="<?= $d['url'] ?>" data-idpeserta="<?= $d['id_buktitransfer'] ?>">view</button></td>
                                 <td>
                                     <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                        <button type="button" class="btn btn-warning">Approve</button>
+                                        <?php
+                                        if ($d['status'] == 3) {
+                                            echo '<button type="button" class="btn btn-success" disabled>Approved</button>';
+                                        } else {
+                                            echo '<button type="button" class="btn btn-warning">Approve</button>';
+                                        }
+                                        ?>
                                         <button type="button" class="btn btn-primary">Edit</button>
                                         <button type="button" class="btn btn-primary">Detail</button>
                                     </div>
