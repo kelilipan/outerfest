@@ -221,8 +221,7 @@
                                 <td><?= $this->Admins->getAdminById($d['id_admin'])['nama'] ?></td>
                                 <td>
                                     <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                        <button type="button" class="btn btn-primary">Detail</button>
-                                        <button type="button" class="btn btn-primary">Edit</button>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editPengumuman" data-title="<?= $d['title'] ?>" data-id="<?= $d['id_pengumuman'] ?>" data-desc="<?= $d['description'] ?>">Edit</button>
                                         <button type="button" class="btn btn-danger">Delete</button>
                                     </div>
                                 </td>
@@ -264,6 +263,36 @@
             </div>
         </div>
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="editPengumuman" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Ubah pengumuman</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="pengumumanEdit" action="editPengumuman" method="POST">
+                        <div class="form-group">
+                            <label for="judul">Judul</label>
+                            <input type="text" name="title" class="form-control" id="judul" placeholder="Judul pengumuman" value="">
+                        </div>
+                        <input type="hidden" id="id_pengumuman" name="id_pengumuman">
+                        <div class="form-group">
+                            <label for="deskripsi">Deskripsi</label>
+                            <textarea class="form-control" name="deskripsi" id="deskripsi" rows="3" placeholder="Deskripsi pengumuman" value=""></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <button type="submit" form="pengumumanEdit" class="btn btn-primary">Simpan</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- end main -->
     <!-- start footer -->
 
@@ -282,6 +311,19 @@
         $(document).ready(function() {
             $('#table').DataTable();
         });
+        $('#editPengumuman').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var title = button.data('title') // Extract info from data-* attributes
+            var id = button.data('id')
+            var desc = button.data('desc') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            console.log(id)
+            modal.find('.modal-body #id_pengumuman').attr('value', id)
+            modal.find('.modal-body #judul').val(title)
+            modal.find('.modal-body #deskripsi').val(desc)
+        })
     </script>
 
 </body>

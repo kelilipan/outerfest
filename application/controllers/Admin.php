@@ -96,4 +96,9 @@ class Admin extends CI_Controller
         $this->Pengumuman->addPengumuman();
         redirect('admin/pengumuman');
     }
+    public function editPengumuman()
+    {
+        $this->Pengumuman->editPengumuman();
+        redirect('admin/pengumuman');
+    }
 }

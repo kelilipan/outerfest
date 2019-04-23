@@ -7,6 +7,10 @@ class Pengumuman extends CI_Model
     {
         return $this->db->get('pengumuman')->result_array();
     }
+    public function getPengumumanById($id)
+    {
+        return $this->db->where('id_pengumuman', $id)->get('pengumuman')->row_array();
+    }
     public function addPengumuman()
     {
         $data  = [
@@ -16,5 +20,14 @@ class Pengumuman extends CI_Model
             'date_created' => date('d F Y')
         ];
         $this->db->insert('pengumuman', $data);
+    }
+    public function editPengumuman()
+    {
+        $id = $this->input->post('id_pengumuman');
+        $data  = [
+            'title' => $this->input->post('title', true),
+            'description' => $this->input->post('deskripsi', true),
+        ];
+        $this->db->where('id_pengumuman', $id)->update('pengumuman', $data);
     }
 }

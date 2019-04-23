@@ -211,7 +211,7 @@
                                 <td><?= $d['nama_event'] ?></td>
                                 <td>
                                     <span>Rp. <?= $d['total'] ?>,-</span>
-                                    <button type="button" class="btn btn-sm btn-success">view</button></td>
+                                    <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#buktiTransferModal" data-url="<?= $d['url'] ?>" data-idpeserta="<?= $d['id_buktitransfer'] ?>">view</button></td>
                                 <td>
                                     <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
                                         <button type="button" class="btn btn-warning">Approve</button>
@@ -272,6 +272,7 @@
                 .zoom();
         });
         $('#buktiTransferModal').on('show.bs.modal', function(event) {
+            // console.log('asu')
             var button = $(event.relatedTarget) // Button that triggered the modal
             var file = button.data('url') // Extract info from data-* attributes
             var id = button.data('idpeserta')
@@ -279,7 +280,7 @@
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
             var modal = $(this)
             modal.find('.modal-title').text(id)
-            modal.find('.modal-body img').attr('src', '../../../assets/img/' + file)
+            modal.find('.modal-body img').attr('src', file)
         })
     </script>
 </body>
