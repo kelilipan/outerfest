@@ -153,13 +153,13 @@
                     <a class="scroll nav-link" href="<?= base_url('admin') ?>">DASHBOARD</a>
                 </li>
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="#">PESERTA</a>
+                    <a class="scroll nav-link" href="<?= base_url('admin/peserta') ?>">PESERTA</a>
                 </li>
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="#">TRANSAKSI</a>
+                    <a class="scroll nav-link" href="<?= base_url('admin/transaksi') ?>">TRANSAKSI</a>
                 </li>
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="#">PENGUMUMAN</a>
+                    <a class="scroll nav-link" href="<?= base_url('admin/pengumuman') ?>">PENGUMUMAN</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -167,11 +167,10 @@
                     </a>
                     <div class="dropdown-menu dashboard-dropdown" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Ganti Password</a>
-                        <a class="dropdown-item" href="#logout">Logout</a>
+                        <a class="dropdown-item" href="<?= base_url('admin/logout') ?>">Logout</a>
                     </div>
                 </li>
                 <li class="nav-item ">
-
                 </li>
             </ul>
         </div>
@@ -195,10 +194,10 @@
                 </div>
                 <div class="input-group mb-3">
                     <button class="btn btn-success mr-2" data-toggle="modal" data-target="#tambahPengumuman">Pengumuman Baru</button>
-                    <input type="text" class="form-control" placeholder="Find an announcement" aria-label="Find ur girlfriends" aria-describedby="button-addon2">
+                    <!-- <input type="text" class="form-control" placeholder="Find an announcement" aria-label="Find ur girlfriends" aria-describedby="button-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-outline-primary" type="button" id="button-addon2">Search</button>
-                    </div>
+                    </div> -->
                 </div>
                 <table class="table table-hover table-responsive-sm mt-3" id="table">
                     <thead>
@@ -212,62 +211,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Perubahan Timeline NPC Junior dan Senior</td>
-                            <td>Terdapat perubahan timeline untuk penyisihan NPC, untuk lebih jelasnya silahkan download dan baca ulang rulebook NPC.</td>
-                            <td>19 Juli 2018</td>
-                            <td>Anvaqta</td>
-                            <td>
-                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-primary">Detail</button>
-                                    <button type="button" class="btn btn-primary">Edit</button>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Perubahan Timeline NPC Junior dan Senior</td>
-                            <td>Terdapat perubahan timeline untuk penyisihan NPC, untuk lebih jelasnya silahkan download dan baca ulang rulebook NPC.</td>
-                            <td>19 Juli 2018</td>
-                            <td>Anvaqta</td>
-                            <td>
-                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-primary">Detail</button>
-                                    <button type="button" class="btn btn-primary">Edit</button>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Perubahan Timeline NPC Junior dan Senior</td>
-                            <td>Terdapat perubahan timeline untuk penyisihan NPC, untuk lebih jelasnya silahkan download dan baca ulang rulebook NPC.</td>
-                            <td>19 Juli 2018</td>
-                            <td>Anvaqta</td>
-                            <td>
-                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-primary">Detail</button>
-                                    <button type="button" class="btn btn-primary">Edit</button>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Perubahan Timeline NPC Junior dan Senior</td>
-                            <td>Terdapat perubahan timeline untuk penyisihan NPC, untuk lebih jelasnya silahkan download dan baca ulang rulebook NPC.</td>
-                            <td>19 Juli 2018</td>
-                            <td>Anvaqta</td>
-                            <td>
-                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-primary">Detail</button>
-                                    <button type="button" class="btn btn-primary">Edit</button>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
+                        <?php
+                        foreach ($pengumuman as $d) { ?>
+                            <tr>
+                                <th scope="row"><?= $d['id_pengumuman'] ?></th>
+                                <td><?= $d['title'] ?></td>
+                                <td><?= $d['description'] ?></td>
+                                <td><?= $d['date_created'] ?></td>
+                                <td><?= $this->Admins->getAdminById($d['id_admin'])['nama'] ?></td>
+                                <td>
+                                    <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-primary">Detail</button>
+                                        <button type="button" class="btn btn-primary">Edit</button>
+                                        <button type="button" class="btn btn-danger">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
@@ -289,11 +249,11 @@
                     <form id="pengumumanBaru">
                         <div class="form-group">
                             <label for="judul">Judul</label>
-                            <input type="text" name="title" class="form-control" id="judul" placeholder="name@example.com">
+                            <input type="text" name="title" class="form-control" id="judul" placeholder="Judul pengumuman">
                         </div>
                         <div class="form-group">
                             <label for="deskripsi">Deskripsi</label>
-                            <textarea class="form-control" name="deskripsi" id="deskripsi" rows="3"></textarea>
+                            <textarea class="form-control" name="deskripsi" id="deskripsi" rows="3" placeholder="Deskripsi pengumuman"></textarea>
                         </div>
                     </form>
                 </div>

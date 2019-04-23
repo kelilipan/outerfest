@@ -150,16 +150,16 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="#">DASHBOARD</a>
+                    <a class="scroll nav-link" href="<?= base_url('admin') ?>">DASHBOARD</a>
                 </li>
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="#">PESERTA</a>
+                    <a class="scroll nav-link" href="<?= base_url('admin/peserta') ?>">PESERTA</a>
                 </li>
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="#">TRANSAKSI</a>
+                    <a class="scroll nav-link" href="<?= base_url('admin/transaksi') ?>">TRANSAKSI</a>
                 </li>
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="#">PENGUMUMAN</a>
+                    <a class="scroll nav-link" href="<?= base_url('admin/pengumuman') ?>">PENGUMUMAN</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -167,11 +167,10 @@
                     </a>
                     <div class="dropdown-menu dashboard-dropdown" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Ganti Password</a>
-                        <a class="dropdown-item" href="#logout">Logout</a>
+                        <a class="dropdown-item" href="<?= base_url('admin/logout') ?>">Logout</a>
                     </div>
                 </li>
                 <li class="nav-item ">
-
                 </li>
             </ul>
         </div>

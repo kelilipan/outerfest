@@ -90,6 +90,20 @@ class Peserta extends CI_Model
     {
         return $this->db->get_where('peserta', ['email' => $this->input->post('email', true)])->row_array();
     }
+    public function fetch_all()
+    {
+        return $this->db->select('*')->from('peserta')
+            ->join('bukti_transfer', 'peserta.id_buktitransfer = bukti_transfer.id_buktitransfer')
+            ->get()->result_array();
+    }
+    public function fetch()
+    {
+        return $this->db->get('peserta')->result_array();
+    }
+    public function fetch_approval()
+    {
+        return $this->db->where('status', '2')->get('peserta')->result_array();
+    }
     public function getPesertaByEmail($email)
     {
         // akwokaowkokaokw

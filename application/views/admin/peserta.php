@@ -150,16 +150,16 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="#">DASHBOARD</a>
+                    <a class="scroll nav-link" href="<?= base_url('admin') ?>">DASHBOARD</a>
                 </li>
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="#">PESERTA</a>
+                    <a class="scroll nav-link" href="<?= base_url('admin/peserta') ?>">PESERTA</a>
                 </li>
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="#">TRANSAKSI</a>
+                    <a class="scroll nav-link" href="<?= base_url('admin/transaksi') ?>">TRANSAKSI</a>
                 </li>
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="#">PENGUMUMAN</a>
+                    <a class="scroll nav-link" href="<?= base_url('admin/pengumuman') ?>">PENGUMUMAN</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -167,11 +167,10 @@
                     </a>
                     <div class="dropdown-menu dashboard-dropdown" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Ganti Password</a>
-                        <a class="dropdown-item" href="#logout">Logout</a>
+                        <a class="dropdown-item" href="<?= base_url('admin/logout') ?>">Logout</a>
                     </div>
                 </li>
                 <li class="nav-item ">
-
                 </li>
             </ul>
         </div>
@@ -193,12 +192,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="input-group mb-3">
+                <!-- <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Find ur girlfriends" aria-label="Find ur girlfriends" aria-describedby="button-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-outline-primary" type="button" id="button-addon2">Search</button>
                     </div>
-                </div>
+                </div> -->
                 <table class="table table-hover table-responsive-sm mt-3" id="table">
                     <thead>
                         <tr>
@@ -212,84 +211,26 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Waluyo bin walidi</td>
-                            <td>Institut Tambal Ban</td>
-                            <td>me@waluyo.id</td>
-                            <td>+62696969696969</td>
-                            <td>NPC</td>
-                            <td>
-                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-primary">Edit</button>
-                                    <button type="button" class="btn btn-primary">Detail</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Waluyo bin walidi</td>
-                            <td>Institut Tambal Ban</td>
-                            <td>me@waluyo.id</td>
-                            <td>+62696969696969</td>
-                            <td>NPC</td>
-                            <td>
-                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-primary">Edit</button>
-                                    <button type="button" class="btn btn-primary">Detail</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Waluyo bin walidi</td>
-                            <td>Institut Tambal Ban</td>
-                            <td>me@waluyo.id</td>
-                            <td>+62696969696969</td>
-                            <td>NPC</td>
-                            <td>
-                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-primary">Edit</button>
-                                    <button type="button" class="btn btn-primary">Detail</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Waluyo bin walidi</td>
-                            <td>Institut Tambal Ban</td>
-                            <td>me@waluyo.id</td>
-                            <td>+62696969696969</td>
-                            <td>NPC</td>
-                            <td>
-                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-primary">Edit</button>
-                                    <button type="button" class="btn btn-primary">Detail</button>
-                                </div>
-                            </td>
-                        </tr>
+                        <?php
+                        foreach ($peserta as $d) { ?>
+                            <tr>
+                                <th scope="row"><?= $d['id_peserta'] ?></th>
+                                <td><?= $d['nama'] ?></td>
+                                <td><?= $d['instansi'] ?></td>
+                                <td><?= $d['email'] ?></td>
+                                <td><?= $d['nohp'] ?></td>
+                                <td><?= $d['id_event'] ?></td>
+                                <td>
+                                    <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-primary">Edit</button>
+                                        <button type="button" class="btn btn-primary">Detail</button>
+                                        <button type="button" class="btn btn-danger">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
-                <ul class="pagination pagination-sm">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li class="page-item active" aria-current="page">
-                        <span class="page-link">
-                            1
-                            <span class="sr-only">(current)</span>
-                        </span>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
             </div>
         </div>
     </div>

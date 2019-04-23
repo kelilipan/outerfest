@@ -9,6 +9,7 @@ class Admin extends CI_Controller
             redirect(base_url('admin/login'));
         } else {
             $data = $this->Peserta->get_statistic();
+            $data['peserta'] = $this->Peserta->fetch_approval();
             $this->load->view('admin/dashboard', $data);
         }
     }
@@ -68,11 +69,13 @@ class Admin extends CI_Controller
     }
     public function pengumuman()
     {
-        $this->load->view('admin/pengumuman');
+        $data['pengumuman'] = $this->Pengumuman->fetch();
+        $this->load->view('admin/pengumuman', $data);
     }
     public function peserta()
     {
-        $this->load->view('admin/peserta');
+        $data['peserta'] = $this->Peserta->fetch();
+        $this->load->view('admin/peserta', $data);
     }
     public function transaksi()
     {

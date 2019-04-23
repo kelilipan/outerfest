@@ -156,10 +156,10 @@
                     <a class="scroll nav-link" href="<?= base_url('admin/peserta') ?>">PESERTA</a>
                 </li>
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="#">TRANSAKSI</a>
+                    <a class="scroll nav-link" href="<?= base_url('admin/transaksi') ?>">TRANSAKSI</a>
                 </li>
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="admin/pengumuman">PENGUMUMAN</a>
+                    <a class="scroll nav-link" href="<?= base_url('admin/pengumuman') ?>">PENGUMUMAN</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -167,11 +167,10 @@
                     </a>
                     <div class="dropdown-menu dashboard-dropdown" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Ganti Password</a>
-                        <a class="dropdown-item" href="#logout">Logout</a>
+                        <a class="dropdown-item" href="<?= base_url('admin/logout') ?>">Logout</a>
                     </div>
                 </li>
                 <li class="nav-item ">
-
                 </li>
             </ul>
         </div>
@@ -225,66 +224,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Waluyo bin walidi</td>
-                            <td>NPC</td>
-                            <td>
-                                <span>Rp. 50.001,-</span>
-                                <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#buktiTransferModal" data-url="1.jpg" data-idpeserta="1">view</button></td>
-                            <td>
-                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-warning">Approve</button>
-                                    <button type="button" class="btn btn-primary">Edit</button>
-                                    <button type="button" class="btn btn-primary">Detail</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Waluyo bin walidi</td>
-                            <td>NPC</td>
-                            <td>
-                                <span>Rp. 50.002,-</span>
-                                <button type="button" class="btn btn-sm btn-success">view</button></td>
-                            <td>
-                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-warning">Approve</button>
-                                    <button type="button" class="btn btn-primary">Edit</button>
-                                    <button type="button" class="btn btn-primary">Detail</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Waluyo bin walidi</td>
-                            <td>NPC</td>
-                            <td>
-                                <span>Rp. 50.003,-</span>
-                                <button type="button" class="btn btn-sm btn-success">view</button></td>
-                            <td>
-                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-warning">Approve</button>
-                                    <button type="button" class="btn btn-primary">Edit</button>
-                                    <button type="button" class="btn btn-primary">Detail</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">4</th>
-                            <td>Waluyo bin walidi</td>
-                            <td>NPC</td>
-                            <td>
-                                <span>Rp. 50.004,-</span>
-                                <button type="button" class="btn btn-sm btn-success">view</button></td>
-                            <td>
-                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-warning">Approve</button>
-                                    <button type="button" class="btn btn-primary">Edit</button>
-                                    <button type="button" class="btn btn-primary">Detail</button>
-                                </div>
-                            </td>
-                        </tr>
+                        <?php foreach ($peserta as $d) { ?>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td><?= $d['nama'] ?></td>
+                                <td><?= strtoupper($this->Events->getEventNameById($d['id_event'])) ?></td>
+                                <td>
+                                    <span>Rp. 50.001,-</span>
+                                    <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#buktiTransferModal" data-url="1.jpg" data-idpeserta="1">view</button></td>
+                                <td>
+                                    <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-warning">Approve</button>
+                                        <button type="button" class="btn btn-primary">Edit</button>
+                                        <button type="button" class="btn btn-primary">Detail</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php
+                    }; ?>
                     </tbody>
                 </table>
                 <div class="modal fade" id="buktiTransferModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -308,27 +265,6 @@
                         </div>
                     </div>
                 </div>
-                <ul class="pagination pagination-sm">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li class="page-item active" aria-current="page">
-                        <span class="page-link">
-                            1
-                            <span class="sr-only">(current)</span>
-                        </span>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-
             </div>
         </div>
     </div>
