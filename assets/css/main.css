@@ -1,14 +1,14 @@
 @font-face {
 	font-family: SFProBold;
-	src: url("http://outerfest.s02.anvaqta.id/assets/fonts/SFProBold.ttf");
+	src: url("../../assets/fonts/SFProBold.ttf");
 }
 @font-face {
 	font-family: SFProRegular;
-	src: url("http://outerfest.s02.anvaqta.id/assets/fonts/SFProRegular.ttf");
+	src: url("../../assets/fonts/SFProRegular.ttf");
 }
 @font-face {
 	font-family: SFProLight;
-	src: url("http://outerfest.s02.anvaqta.id/assets/fonts/SFProLight.ttf");
+	src: url("../../assets/fonts/SFProLight.ttf");
 }
 body {
 	background: #000;
