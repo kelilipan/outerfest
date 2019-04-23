@@ -5,7 +5,7 @@
 <?php
 if ($this->session->flashdata('message')) {
     echo '<div class="alert alert-dark" role="alert">
-                    ' + $this->session->flashdata('message') + '
+                    ', $this->session->flashdata('message'), '
                 </div>';
 } ?>
 <div class="alert alert-success">

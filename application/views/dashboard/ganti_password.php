@@ -117,6 +117,10 @@
         .center {
             text-align: center;
         }
+
+        .material-input {
+            color: unset;
+        }
     </style>
 </head>
 
@@ -173,7 +177,13 @@
                         <hr>
                     </div>
                 </div>
-                <form class="form" action="#" method="POST" autocomplete="off">
+                <?php
+                if ($this->session->flashdata('message')) {
+                    echo '<div class="alert alert-dark" role="alert">
+                    ', $this->session->flashdata('message'), '
+                </div>';
+                } ?>
+                <form class="form" action="ganti_password" method="POST" autocomplete="off">
                     <div class="material-form <?= $eventName ?>">
                         <input type="password" class="material-input" name="password_current" required>
                         <label class="material-label">Password Sekarang</label>
@@ -182,6 +192,7 @@
                         <input type="password" class="material-input" name="password" required>
                         <label class="material-label">Password Baru</label>
                     </div>
+                    <?= form_error('password', '<div class="text-danger">', '</div>') ?>
                     <div class="material-form <?= $eventName ?>">
                         <input type="password" class="material-input" name="password_confirmation" required>
                         <label class="material-label">Confirm Password</label>

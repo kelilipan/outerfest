@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../../assets/css/bootstrap.css" />
     <link rel="stylesheet" href="../../../assets/css/main.css" />
     <link rel="stylesheet" href="../../../assets/css/animations.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="https://schematics.its.ac.id/css/materialform.css">
     <style>
         .form {
@@ -193,7 +194,7 @@
                     </div>
                 </div>
                 <span>Silahkan cek pembayaran melalui bank. Jika sudah,tekan tombol approve</span>
-                <table class="table table-hover table-responsive-sm mt-3">
+                <table class="table table-hover table-responsive-sm mt-3" id="table">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
@@ -287,27 +288,6 @@
                         </div>
                     </div>
                 </div>
-                <ul class="pagination pagination-sm">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li class="page-item active" aria-current="page">
-                        <span class="page-link">
-                            1
-                            <span class="sr-only">(current)</span>
-                        </span>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-
             </div>
         </div>
     </div>
@@ -323,16 +303,19 @@
     <script src="../../../assets/js/main.js"></script>
     <script src="../../../assets/js/jquery.zoom.js"></script>
     <script type="text/javascript" src="../../../assets/js/css3-animate-it.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             // $('#ex1').zoom();
+            $('#table').DataTable();
             $('#ex1')
                 .wrap('<span style="display:inline-block"></span>')
                 .css('display', 'block')
                 .parent()
                 .zoom();
         });
-        $('#buktiTransferModal').on('show.bs.modal', function (event) {
+        $('#buktiTransferModal').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget) // Button that triggered the modal
             var file = button.data('url') // Extract info from data-* attributes
             var id = button.data('idpeserta')
@@ -342,7 +325,6 @@
             modal.find('.modal-title').text(id)
             modal.find('.modal-body img').attr('src', '../../../assets/img/' + file)
         })
-
     </script>
 </body>
 

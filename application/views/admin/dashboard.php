@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../../assets/css/bootstrap.css" />
     <link rel="stylesheet" href="../../../assets/css/main.css" />
     <link rel="stylesheet" href="../../../assets/css/animations.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="https://schematics.its.ac.id/css/materialform.css">
     <style>
         .form {
@@ -149,16 +150,16 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="#">DASHBOARD</a>
+                    <a class="scroll nav-link" href="<?= base_url('admin') ?>">DASHBOARD</a>
                 </li>
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="#">PESERTA</a>
+                    <a class="scroll nav-link" href="<?= base_url('admin/peserta') ?>">PESERTA</a>
                 </li>
                 <li class="nav-item">
                     <a class="scroll nav-link" href="#">TRANSAKSI</a>
                 </li>
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="#">PENGUMUMAN</a>
+                    <a class="scroll nav-link" href="admin/pengumuman">PENGUMUMAN</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -187,26 +188,39 @@
                 <div class="mt-4">
                     <div class="row">
                         <div class="col">
-                            <h3 class="title">Daftar Peserta</h3>
+                            <h3 class="title">Dashboard</h3>
                             <hr>
                         </div>
                     </div>
-                </div>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Find ur girlfriends" aria-label="Find ur girlfriends" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-primary" type="button" id="button-addon2">Search</button>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 card text-white bg-primary">
+                            <h4>Total Peserta</h4>
+                            <h4><?= $total ?></h4>
+                        </div>
+                        <div class="col-lg-3 col-md-3 card text-white bg-success">
+                            <h4>Terdaftar</h4>
+                            <h4><?= $terdaftar ?></h4>
+                        </div>
+                        <div class="col-lg-3 col-md-3 text-white bg-warning card">
+                            <h4>Need Approval</h4>
+                            <h4><?= $approve ?></h4>
+                        </div>
+                        <div class="col-lg-3 col-md-3 card text-white bg-danger">
+                            <h4>Closed</h4>
+                            <h4><?= $closed ?></h4>
+                        </div>
                     </div>
                 </div>
-                <table class="table table-hover table-responsive-sm mt-3">
+                <h3 class="title mt-4">Need Approval</h3>
+                <hr>
+                <span>Silahkan cek pembayaran melalui bank. Jika sudah,tekan tombol approve</span>
+                <table class="table table-hover table-responsive-sm mt-3" id="table">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Nama</th>
-                            <th scope="col">Instansi</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">No hp</th>
                             <th scope="col">Event</th>
+                            <th scope="col">Bukti Pembayaran</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -214,54 +228,58 @@
                         <tr>
                             <th scope="row">1</th>
                             <td>Waluyo bin walidi</td>
-                            <td>Institut Tambal Ban</td>
-                            <td>me@waluyo.id</td>
-                            <td>+62696969696969</td>
                             <td>NPC</td>
                             <td>
+                                <span>Rp. 50.001,-</span>
+                                <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#buktiTransferModal" data-url="1.jpg" data-idpeserta="1">view</button></td>
+                            <td>
                                 <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-warning">Approve</button>
                                     <button type="button" class="btn btn-primary">Edit</button>
                                     <button type="button" class="btn btn-primary">Detail</button>
                                 </div>
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">1</th>
+                            <th scope="row">2</th>
                             <td>Waluyo bin walidi</td>
-                            <td>Institut Tambal Ban</td>
-                            <td>me@waluyo.id</td>
-                            <td>+62696969696969</td>
                             <td>NPC</td>
                             <td>
+                                <span>Rp. 50.002,-</span>
+                                <button type="button" class="btn btn-sm btn-success">view</button></td>
+                            <td>
                                 <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-warning">Approve</button>
                                     <button type="button" class="btn btn-primary">Edit</button>
                                     <button type="button" class="btn btn-primary">Detail</button>
                                 </div>
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">1</th>
+                            <th scope="row">3</th>
                             <td>Waluyo bin walidi</td>
-                            <td>Institut Tambal Ban</td>
-                            <td>me@waluyo.id</td>
-                            <td>+62696969696969</td>
                             <td>NPC</td>
                             <td>
+                                <span>Rp. 50.003,-</span>
+                                <button type="button" class="btn btn-sm btn-success">view</button></td>
+                            <td>
                                 <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-warning">Approve</button>
                                     <button type="button" class="btn btn-primary">Edit</button>
                                     <button type="button" class="btn btn-primary">Detail</button>
                                 </div>
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">1</th>
+                            <th scope="row">4</th>
                             <td>Waluyo bin walidi</td>
-                            <td>Institut Tambal Ban</td>
-                            <td>me@waluyo.id</td>
-                            <td>+62696969696969</td>
                             <td>NPC</td>
                             <td>
+                                <span>Rp. 50.004,-</span>
+                                <button type="button" class="btn btn-sm btn-success">view</button></td>
+                            <td>
                                 <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-warning">Approve</button>
                                     <button type="button" class="btn btn-primary">Edit</button>
                                     <button type="button" class="btn btn-primary">Detail</button>
                                 </div>
@@ -269,6 +287,27 @@
                         </tr>
                     </tbody>
                 </table>
+                <div class="modal fade" id="buktiTransferModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <span id='ex1'>
+                                    <img src='../../../assets/img/a.png' width='100%' alt='buktiTransfer'>
+                                </span>
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed nesciunt, voluptatem quam nisi magnam culpa doloribus tempora sequi tempore deserunt quas facilis nemo eveniet. Aliquid labore consectetur qui id dicta!
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <ul class="pagination pagination-sm">
                     <li class="page-item">
                         <a class="page-link" href="#" aria-label="Previous">
@@ -289,9 +328,11 @@
                         </a>
                     </li>
                 </ul>
+
             </div>
         </div>
     </div>
+
     <!-- end main -->
     <!-- start footer -->
 
@@ -305,6 +346,29 @@
     <script src="../../../assets/js/jquery.zoom.js"></script>
     <script type="text/javascript" src="../../../assets/js/css3-animate-it.js"></script>
 
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // $('#ex1').zoom();
+            $('#table').DataTable();
+            $('#ex1')
+                .wrap('<span style="display:inline-block"></span>')
+                .css('display', 'block')
+                .parent()
+                .zoom();
+        });
+        $('#buktiTransferModal').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var file = button.data('url') // Extract info from data-* attributes
+            var id = button.data('idpeserta')
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            modal.find('.modal-title').text(id)
+            modal.find('.modal-body img').attr('src', '../../../assets/img/' + file)
+        })
+    </script>
 </body>
 
 </html>

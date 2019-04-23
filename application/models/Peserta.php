@@ -128,4 +128,22 @@ class Peserta extends CI_Model
             return true;
         }
     }
+    public function ganti_password($id)
+    {
+        $data = array(
+            'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT)
+        );
+        $where = array('id_peserta' => $id);
+        $this->db->where($where)->update('peserta', $data);
+    }
+    public function get_statistic()
+    {
+        $data = [
+            'total' => $this->db->count_all_results('peserta'),
+            'terdaftar' => $this->db->where('status', '1')->count_all_results('peserta'),
+            'approve' => $this->db->where('status', '2')->count_all_results('peserta'),
+            'closed' => $this->db->where('status', '3')->count_all_results('peserta')
+        ];
+        return $data;
+    }
 }

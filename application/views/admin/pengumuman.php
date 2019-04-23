@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../../assets/css/bootstrap.css" />
     <link rel="stylesheet" href="../../../assets/css/main.css" />
     <link rel="stylesheet" href="../../../assets/css/animations.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="https://schematics.its.ac.id/css/materialform.css">
     <style>
         .form {
@@ -149,7 +150,7 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="#">DASHBOARD</a>
+                    <a class="scroll nav-link" href="<?= base_url('admin') ?>">DASHBOARD</a>
                 </li>
                 <li class="nav-item">
                     <a class="scroll nav-link" href="#">PESERTA</a>
@@ -193,13 +194,13 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <button class="btn btn-success mr-2">Pengumuman Baru</button>
+                    <button class="btn btn-success mr-2" data-toggle="modal" data-target="#tambahPengumuman">Pengumuman Baru</button>
                     <input type="text" class="form-control" placeholder="Find an announcement" aria-label="Find ur girlfriends" aria-describedby="button-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-outline-primary" type="button" id="button-addon2">Search</button>
                     </div>
                 </div>
-                <table class="table table-hover table-responsive-sm mt-3">
+                <table class="table table-hover table-responsive-sm mt-3" id="table">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
@@ -269,26 +270,37 @@
                         </tr>
                     </tbody>
                 </table>
-                <ul class="pagination pagination-sm">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li class="page-item active" aria-current="page">
-                        <span class="page-link">
-                            1
-                            <span class="sr-only">(current)</span>
-                        </span>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="tambahPengumuman" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Pengumuman Baru</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="pengumumanBaru">
+                        <div class="form-group">
+                            <label for="judul">Judul</label>
+                            <input type="text" name="title" class="form-control" id="judul" placeholder="name@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="deskripsi">Deskripsi</label>
+                            <textarea class="form-control" name="deskripsi" id="deskripsi" rows="3"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <button type="submit" form="pengumumanBaru" class="btn btn-primary">Tambah</button>
+                </div>
             </div>
         </div>
     </div>
@@ -302,8 +314,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="../../../assets/js/main.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
     <script src="../../../assets/js/jquery.zoom.js"></script>
     <script type="text/javascript" src="../../../assets/js/css3-animate-it.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#table').DataTable();
+        });
+    </script>
 
 </body>
 
