@@ -214,8 +214,13 @@
                                     <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#buktiTransferModal" data-url="<?= $d['url'] ?>" data-idpeserta="<?= $d['id_buktitransfer'] ?>">view</button></td>
                                 <td>
                                     <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                        <button type="button" class="btn btn-warning">Approve</button>
-                                        <button type="button" class="btn btn-primary">Edit</button>
+                                        <?php
+                                        if ($d['status'] == 3) {
+                                            echo '<button type="button" class="btn btn-success" disabled>Approved</button>';
+                                        } else {
+                                            echo '<a href=' . base_url('admin/approve/') . $d['id_peserta'] . ' class="btn btn-warning">Approve</a>';
+                                        }
+                                        ?>
                                         <button type="button" class="btn btn-primary">Detail</button>
                                     </div>
                                 </td>

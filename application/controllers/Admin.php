@@ -90,7 +90,7 @@ class Admin extends CI_Controller
     public function transaksi()
     {
         $this->isLoggedIn();
-        $this->db->select('bukti_transfer.*,peserta.nama as nama_peserta,events.nama as nama_event');
+        $this->db->select('bukti_transfer.*,peserta.nama as nama_peserta,events.nama as nama_event,peserta.status as status');
         $this->db->from('bukti_transfer');
         $this->db->join('peserta', 'bukti_transfer.id_peserta = peserta.id_peserta', 'LEFT');
         $this->db->join('events', 'bukti_transfer.id_event = events.id_event', 'LEFT');
@@ -115,10 +115,10 @@ class Admin extends CI_Controller
     public function hapusPengumuman($id)
     {
         $this->Pengumuman->delete($id);
-        redirect('admin/pengumuman');
     }
     public function approve($id)
     {
         $this->Peserta->approve($id);
+        redirect('admin/transaksi');
     }
 }

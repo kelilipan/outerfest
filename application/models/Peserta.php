@@ -163,7 +163,7 @@ class Peserta extends CI_Model
     public function approve($id)
     {
         $data = array(
-            'status' => 2
+            'status' => 3
         );
         $where = array('id_peserta' => $id);
         $this->db->where($where)->update('peserta', $data);
