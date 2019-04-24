@@ -207,6 +207,7 @@
                             <th scope="col">Email</th>
                             <th scope="col">No hp</th>
                             <th scope="col">Event</th>
+                            <th scope="col">Status</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -220,6 +221,7 @@
                                 <td><?= $d['email'] ?></td>
                                 <td><?= $d['nohp'] ?></td>
                                 <td><?= strtoupper($this->Events->getEventNameById($d['id_event'])) ?></td>
+                                <td><?= $d['status'] ?></td>
                                 <td>
                                     <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
                                         <button type="button" class="btn btn-primary">Edit</button>
