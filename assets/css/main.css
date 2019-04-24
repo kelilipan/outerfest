@@ -1,14 +1,14 @@
 @font-face {
 	font-family: SFProBold;
-	src: url("../ ../../fonts/SFProBold.ttf");
+	src: url("../../assets/fonts/SFProBold.ttf");
 }
 @font-face {
 	font-family: SFProRegular;
-	src: url("../ ../../fonts/SFProRegular.ttf");
+	src: url("../../assets/fonts/SFProRegular.ttf");
 }
 @font-face {
 	font-family: SFProLight;
-	src: url("../ ../../fonts/SFProLight.ttf");
+	src: url("../../assets/fonts/SFProLight.ttf");
 }
 body {
 	background: #000;
@@ -278,7 +278,7 @@ body {
 	}
 }
 #header .mesh {
-	background-image: url("../../../assets/img/a.png");
+	background-image: url("../../assets/img/a.png");
 	background-size: cover;
 	background-position: 176px -223px;
 	background-repeat: no-repeat;
@@ -324,7 +324,7 @@ body {
 	color: white;
 	padding: 16px 32px;
 	margin-top: 32px;
-	background-image: url("../../../assets/img/bg_btn.png");
+	background-image: url("../../assets/img/bg_btn.png");
 	background-position: -256px -31px;
 	transition: 500ms;
 }
@@ -654,7 +654,7 @@ body {
 	justify-content: center;
 }
 #footer .mesh {
-	background-image: url("../../../assets/img/bg_footer.png");
+	background-image: url("../../assets/img/bg_footer.png");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: -229px 33px;
@@ -905,7 +905,7 @@ section.event p {
 	z-index: 1;
 }
 #register .mesh {
-	background-image: url("../../../assets/img/a.png");
+	background-image: url("../../assets/img/a.png");
 	background-size: cover;
 	background-position: 176px -223px;
 	background-repeat: no-repeat;
@@ -1008,7 +1008,7 @@ section.event p {
 	}
 	#dashboard nav .mesh {
 		display: block;
-		background-image: url("../../../assets/img/a.png");
+		background-image: url("../../assets/img/a.png");
 		background-size: cover;
 		background-position: 176px -312px;
 		background-repeat: no-repeat;

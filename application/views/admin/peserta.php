@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../../assets/css/bootstrap.css" />
     <link rel="stylesheet" href="../../../assets/css/main.css" />
     <link rel="stylesheet" href="../../../assets/css/animations.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="https://schematics.its.ac.id/css/materialform.css">
     <style>
         .form {
@@ -149,16 +150,16 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="#">DASHBOARD</a>
+                    <a class="scroll nav-link" href="<?= base_url('admin') ?>">DASHBOARD</a>
                 </li>
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="#">PESERTA</a>
+                    <a class="scroll nav-link" href="<?= base_url('admin/peserta') ?>">PESERTA</a>
                 </li>
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="#">TRANSAKSI</a>
+                    <a class="scroll nav-link" href="<?= base_url('admin/transaksi') ?>">TRANSAKSI</a>
                 </li>
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="#">PENGUMUMAN</a>
+                    <a class="scroll nav-link" href="<?= base_url('admin/pengumuman') ?>">PENGUMUMAN</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -166,11 +167,10 @@
                     </a>
                     <div class="dropdown-menu dashboard-dropdown" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Ganti Password</a>
-                        <a class="dropdown-item" href="#logout">Logout</a>
+                        <a class="dropdown-item" href="<?= base_url('admin/logout') ?>">Logout</a>
                     </div>
                 </li>
                 <li class="nav-item ">
-
                 </li>
             </ul>
         </div>
@@ -187,108 +187,52 @@
                 <div class="mt-4">
                     <div class="row">
                         <div class="col">
-                            <h3 class="title">Pengumuman</h3>
+                            <h3 class="title">Daftar Peserta</h3>
                             <hr>
                         </div>
                     </div>
                 </div>
-                <div class="input-group mb-3">
-                    <button class="btn btn-success mr-2">Pengumuman Baru</button>
-                    <input type="text" class="form-control" placeholder="Find an announcement" aria-label="Find ur girlfriends" aria-describedby="button-addon2">
+                <!-- <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Find ur girlfriends" aria-label="Find ur girlfriends" aria-describedby="button-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-outline-primary" type="button" id="button-addon2">Search</button>
                     </div>
-                </div>
-                <table class="table table-hover table-responsive-sm mt-3">
+                </div> -->
+                <table class="table table-hover table-responsive-sm mt-3" id="table">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Judul</th>
-                            <th scope="col">Deskripsi</th>
-                            <th scope="col">Tanggal</th>
-                            <th scope="col">Admin</th>
+                            <th scope="col">Nama</th>
+                            <th scope="col">Instansi</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">No hp</th>
+                            <th scope="col">Event</th>
+                            <th scope="col">Status</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Perubahan Timeline NPC Junior dan Senior</td>
-                            <td>Terdapat perubahan timeline untuk penyisihan NPC, untuk lebih jelasnya silahkan download dan baca ulang rulebook NPC.</td>
-                            <td>19 Juli 2018</td>
-                            <td>Anvaqta</td>
-                            <td>
-                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-primary">Detail</button>
-                                    <button type="button" class="btn btn-primary">Edit</button>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Perubahan Timeline NPC Junior dan Senior</td>
-                            <td>Terdapat perubahan timeline untuk penyisihan NPC, untuk lebih jelasnya silahkan download dan baca ulang rulebook NPC.</td>
-                            <td>19 Juli 2018</td>
-                            <td>Anvaqta</td>
-                            <td>
-                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-primary">Detail</button>
-                                    <button type="button" class="btn btn-primary">Edit</button>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Perubahan Timeline NPC Junior dan Senior</td>
-                            <td>Terdapat perubahan timeline untuk penyisihan NPC, untuk lebih jelasnya silahkan download dan baca ulang rulebook NPC.</td>
-                            <td>19 Juli 2018</td>
-                            <td>Anvaqta</td>
-                            <td>
-                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-primary">Detail</button>
-                                    <button type="button" class="btn btn-primary">Edit</button>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Perubahan Timeline NPC Junior dan Senior</td>
-                            <td>Terdapat perubahan timeline untuk penyisihan NPC, untuk lebih jelasnya silahkan download dan baca ulang rulebook NPC.</td>
-                            <td>19 Juli 2018</td>
-                            <td>Anvaqta</td>
-                            <td>
-                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-primary">Detail</button>
-                                    <button type="button" class="btn btn-primary">Edit</button>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
+                        <?php
+                        foreach ($peserta as $d) { ?>
+                            <tr>
+                                <th scope="row"><?= $d['id_peserta'] ?></th>
+                                <td><?= $d['nama'] ?></td>
+                                <td><?= $d['instansi'] ?></td>
+                                <td><?= $d['email'] ?></td>
+                                <td><?= $d['nohp'] ?></td>
+                                <td><?= strtoupper($this->Events->getEventNameById($d['id_event'])) ?></td>
+                                <td><?= $d['status'] ?></td>
+                                <td>
+                                    <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-primary">Edit</button>
+                                        <button type="button" class="btn btn-primary">Detail</button>
+                                        <button type="button" class="btn btn-danger">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
-                <ul class="pagination pagination-sm">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li class="page-item active" aria-current="page">
-                        <span class="page-link">
-                            1
-                            <span class="sr-only">(current)</span>
-                        </span>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
             </div>
         </div>
     </div>
@@ -304,6 +248,13 @@
     <script src="../../../assets/js/main.js"></script>
     <script src="../../../assets/js/jquery.zoom.js"></script>
     <script type="text/javascript" src="../../../assets/js/css3-animate-it.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#table').DataTable();
+        });
+    </script>
 
 </body>
 

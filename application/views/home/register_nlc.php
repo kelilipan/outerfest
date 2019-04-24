@@ -102,7 +102,7 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="#">HOME</a>
+                    <a class="scroll nav-link" href="<?= base_url(); ?>">HOME</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -116,7 +116,7 @@
                     </div>
                 </li>
                 <li class="nav-item nav-login">
-                    <a class="scroll nav-link" href="#">LOGIN</a>
+                    <a class="scroll nav-link" href="<?= base_url('Home/login'); ?>">LOGIN</a>
                 </li>
             </ul>
         </div>
@@ -126,8 +126,14 @@
     <section id="register" class="animatedParent d-flex flex-column justify-content-center">
         <div class="mesh"></div>
         <div class="form-container animated fadeInUpShort">
+            <?php
+            if ($this->session->flashdata('message')) {
+                echo '<div class="alert alert-dark" role="alert">
+                    ' + $this->session->flashdata('message') + '
+                </div>';
+            } ?>
             <h1>Register NLC</h1>
-            <form class="form" action="register_nlc" method="POST">
+            <form class="form" action="register_nlc" method="POST" enctype="multipart/form-data" accept-charset="utf-8">
                 <div class="material-form nlc">
                     <input type="text" class="material-input" name="nama" value="<?= set_value('nama'); ?>" required>
                     <label class="material-label">Nama</label>
@@ -167,7 +173,7 @@
                     <input type="text" name="identitas" class="form-control" placeholder="Upload Kartu Pelajar/Mahasiswa" readonly>
                     <span class="input-group-btn">
                         <div class="btn btn-dark custom-file-uploader">
-                            <input type="file" onchange="this.form.identitas.value = this.files.length ? this.files[0].name : ''" />
+                            <input type="file" name="file_identitas" onchange="this.form.identitas.value = this.files.length ? this.files[0].name : ''" />
                             Select a file
                         </div>
                     </span>
