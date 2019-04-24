@@ -181,7 +181,7 @@
     <div class="dashboard-container">
         <div style="min-height: 100%;padding-bottom: 5rem;">
             <div class="alert alert-secondary">
-                Selamat datang, <b>Anvaqta Tangguh Wisesa</b> !
+                Selamat datang, <b><?= $this->session('namaAdmin') ?></b> !
             </div>
             <div class="container">
                 <div class="mt-4">
@@ -225,7 +225,7 @@
                                 <td>
                                     <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
                                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editPeserta" data-id="<?= $d['id_peserta'] ?>" data-nama="<?= $d['nama'] ?>" data-email="<?= $d['email'] ?>" data-instansi="<?= $d['instansi'] ?>" data-asal="<?= $d['asal'] ?>" data-nohp="<?= $d['nohp'] ?>" data-idline="<?= $d['idline'] ?>" data-status="<?= $d['status'] ?>">Edit</button>
-                                        <button type="button" class="btn btn-primary">Detail</button>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailPeserta" data-id="<?= $d['id_peserta'] ?>" data-nama="<?= $d['nama'] ?>" data-email="<?= $d['email'] ?>" data-instansi="<?= $d['instansi'] ?>" data-asal="<?= $d['asal'] ?>" data-nohp="<?= $d['nohp'] ?>" data-idline="<?= $d['idline'] ?>" data-status="<?= $d['status'] ?>" data-event="<?= strtoupper($this->Events->getEventNameById($d['id_event'])) ?>" data-identitas="<?= $d['identitas'] ?>">Detail</button>
                                         <a href="<?= base_url('admin/hapusPeserta') ?>/<?= $d['id_peserta'] ?>" class="btn btn-danger">Delete</a>
                                     </div>
                                 </td>
@@ -290,6 +290,66 @@
             </div>
         </div>
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="detailPeserta" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="nama">Ubah Peserta</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <span id='ex1'>
+                        <img src='<?= base_url() ?>assets/img/a.png' width='100%' alt='identitas'>
+                    </span>
+                    <ul class="info mt-2">
+                        <li>
+                            <div class="row">
+                                <div class="col-3 ">Email</div>
+                                <div class="col-9" id="email"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row">
+                                <div class="col-3 ">Telp</div>
+                                <div class="col-9" id="nohp"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row">
+                                <div class="col-3 ">ID Line</div>
+                                <div class="col-9" id="idline"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row">
+                                <div class="col-3 ">Instansi</div>
+                                <div class="col-9" id="instansi"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row">
+                                <div class="col-3 ">Asal</div>
+                                <div class="col-9" id="asal"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row">
+                                <div class="col-3 ">Kategori</div>
+                                <div class="col-9" id="event"></div>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- end main -->
     <!-- start footer -->
 
@@ -310,6 +370,15 @@
         });
     </script>
     <script>
+        $(document).ready(function() {
+            // $('#ex1').zoom();
+            $('#table').DataTable();
+            $('#ex1')
+                .wrap('<span style="display:inline-block"></span>')
+                .css('display', 'block')
+                .parent()
+                .zoom();
+        });
         $('#editPeserta').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget) // Button that triggered the modal
             var id_peserta = button.data('id') // Extract info from data-* attributes
@@ -331,6 +400,33 @@
             modal.find('.modal-body #nohp').val(nohp)
             modal.find('.modal-body #idline').val(idline)
             modal.find('.modal-body #status').val(status)
+        })
+        $('#detailPeserta').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var id_peserta = button.data('id') // Extract info from data-* attributes
+            var nama = button.data('nama') // Extract info from data-* attributes
+            var email = button.data('email')
+            var instansi = button.data('instansi')
+            var asal = button.data('asal')
+            var nohp = button.data('nohp')
+            var idline = button.data('idline')
+            var event = button.data('event')
+            var identitas = button.data('identitas')
+            var status = button.data('status') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            console.log('asdsa')
+            // modal.find('.modal-body #id_peserta').attr('value', id_peserta)
+            modal.find('.modal-body img').attr('src', "<?= base_url('uploads/identitas/') ?>" + identitas)
+            modal.find('#nama').html(nama)
+            modal.find('.modal-body #email').html(": " + email)
+            modal.find('.modal-body #instansi').html(": " + instansi)
+            modal.find('.modal-body #asal').html(": " + asal)
+            modal.find('.modal-body #nohp').html(": " + nohp)
+            modal.find('.modal-body #idline').html(": " + idline)
+            modal.find('.modal-body #status').html(": " + status)
+            modal.find('.modal-body #event').html(": " + event)
         })
     </script>
 </body>

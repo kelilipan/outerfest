@@ -102,7 +102,9 @@ class Peserta extends CI_Model
     }
     public function fetch_approval()
     {
-        return $this->db->where('status', '2')->get('peserta')->result_array();
+        return $this->db->where('status', '2')
+            ->join('bukti_transfer', 'bukti_transfer.id_buktitransfer = peserta.id_buktitransfer', 'LEFT')
+            ->get('peserta')->result_array();
     }
     public function getPesertaByEmail($email)
     {
