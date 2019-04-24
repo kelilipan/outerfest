@@ -173,4 +173,18 @@ class Peserta extends CI_Model
         $this->db->delete('peserta', array('id_peserta' => $id));
         $this->db->delete('bukti_transfer', array('id_peserta' => $id));
     }
+    public function edit()
+    {
+        $where = array('id_peserta' => $this->input->post('id_peserta'));
+        $data = [
+            'nama' => $this->input->post('nama', true),
+            'instansi' => $this->input->post('instansi', true),
+            'email' => $this->input->post('email', true),
+            'asal' => $this->input->post('asal', true),
+            'nohp' => $this->input->post('nohp', true),
+            'idline' => $this->input->post('idline', true),
+            'status' => $this->input->post('status', true),
+        ];
+        $this->db->where($where)->update('peserta', $data);
+    }
 }

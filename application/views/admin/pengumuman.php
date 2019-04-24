@@ -319,7 +319,7 @@
             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
             var modal = $(this)
-            console.log(id)
+            // console.log(id)
             modal.find('.modal-body #id_pengumuman').attr('value', id)
             modal.find('.modal-body #judul').val(title)
             modal.find('.modal-body #deskripsi').val(desc)

@@ -127,4 +127,9 @@ class Admin extends CI_Controller
         $this->Peserta->approve($id);
         redirect('admin/transaksi');
     }
+    public function editPeserta()
+    {
+        $this->Peserta->edit();
+        redirect('admin/peserta');
+    }
 }
