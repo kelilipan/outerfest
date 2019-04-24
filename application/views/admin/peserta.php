@@ -149,7 +149,7 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="<?= base_url() ?>homeadmin/index">DASHBOARD</a>
+                    <a class="scroll nav-link" href="<?= base_url() ?>c_peserta/pesertadashboard">DASHBOARD</a>
                 </li>
                 <li class="nav-item">
                     <a class="scroll nav-link" href="#">PESERTA</a>
@@ -242,10 +242,10 @@
                                 <td><?= $p->nohp       ?></td>
                                 <td><?= $p->id_event   ?></td>
                                 <td>
-                                    <a href="<?= base_url() ?> c_peserta/edit/" <?php echo $peserta->id; ?>>
-                                        <button type="button" class="btn btn-primary" >Edit</button>
+                                    <a href="<?= base_url() ?>c_peserta/edit_dataPeserta/" <?php echo $p->id_peserta; ?>>
+                                        <button type="button" class="btn btn-primary">Edit</button>
                                     </a>
-                                    <a href="<?= base_url() ?> c_peserta//" <?php echo $peserta->id; ?>>
+                                    <a href="<?= base_url() ?>c_peserta//" <?php echo $p->id_peserta; ?>>
                                         <button type="button" class="btn btn-primary">Detail</button>
                                     </a>
                                     <!-- <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">  -->

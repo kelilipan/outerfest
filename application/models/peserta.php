@@ -83,22 +83,45 @@ class Peserta extends CI_Model
         return $query->result();
     }
 
-    public function edit_peserta($id, $peserta)
+
+    // public function edit_peserta($id, $peserta)
+    // {
+    //     return $this->db->get_where($peserta, $id_);
+    //     $success = $this->db->update('peserta', $peserta);
+    //     if ($success) {
+    //         redirect('/c_peserta/index/');
+    //     } else {
+    //         redirect('/c_peserta/editpeserta/');
+    //     }
+    // }
+
+    // function update_data($where, $data, $peserta)
+    // {
+    //     $this->db->where($where);
+    //     $this->db->update($peserta, $data);
+    // }
+
+    function edit_peserta($id_peserta)
     {
-        return $this->db->get_where($peserta, $id);
-        $success = $this->db->update('peserta', $peserta);
-        if ($success) {
+        $this->db->select('*');
+        $this->db->from('peserta');
+        $this->db->where('id_peserta', $id_peserta);
+        $query = $this->db->get();
+        $result = $query->result();
+        return $result;
+    }
+
+    function update_peserta($id_peserta, $data)
+    {
+        $this->db->where('id_peserta', $id_peserta);
+        $berhasil = $this->db->update('peserta', $data);
+        if ($berhasil) {
             redirect('/c_peserta/index/');
         } else {
             redirect('/c_peserta/editpeserta/');
         }
     }
 
-    function update_data($where, $data, $peserta)
-    {
-        $this->db->where($where);
-        $this->db->update($peserta, $data);
-    }
     // public function getAll()
     // {
     //     return $this->db->get($this->_table)->result();

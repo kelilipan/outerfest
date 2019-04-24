@@ -126,32 +126,32 @@
     <section id="register" class="animatedParent d-flex flex-column justify-content-center">
         <div class="mesh"></div>
         <div class="form-container animated fadeInUpShort">
-            <h1>Edit Peserta</h1>
-            <form class="form" action="register_nlc" method="POST">
+            <h1>Tambah Pengumuman</h1>
+            <form class="form" action="/c_pengumuman/adddpengumuman" method="POST">
                 <div class="material-form nlc">
-                    <input type="text" class="material-input" name="nama" value="<?= set_value('nama'); ?>" required>
-                    <label class="material-label">Nama</label>
+                    <input type="text" class="material-input" name="nama" value="<?= set_value('id_pengumuman'); ?>" required>
+                    <label class="material-label">ID</label>
                 </div>
                 <div class="material-form nlc">
-                    <input type="text" class="material-input" name="instansi" value="<?= set_value('instansi'); ?>" required>
-                    <label class="material-label">Sekolah/Instansi</label>
+                    <input type="text" class="material-input" name="title" value="<?= set_value('title'); ?>" required>
+                    <label class="material-label">Judul</label>
                 </div>
                 <div class="material-form nlc">
-                    <input type="text" class="material-input" name="email" value="<?= set_value('email'); ?>" required>
-                    <label class="material-label">Email</label>
+                    <input type="text" class="material-input" name="description" value="<?= set_value('description'); ?>" required>
+                    <label class="material-label">Deskripsi</label>
                 </div>
                 <?= form_error('email', '<div class="text-danger">', '</div>') ?>
                 <div class="material-form nlc">
-                    <input type="text" class="material-input" name="asal" value="<?= set_value('asal'); ?>" required>
-                    <label class="material-label">Asal Daerah</label>
+                    <input type="text" class="material-input" name="date_created" value="<?= set_value('date_created'); ?>" required>
+                    <label class="material-label">Tanggal</label>
                 </div>
                 <div class="material-form nlc">
-                    <input type="text" class="material-input" name="nohp" value="<?= set_value('nohp'); ?>" required>
-                    <label class="material-label">No. HP</label>
+                    <input type="text" class="material-input" name="id_admin" value="<?= set_value('id_admin'); ?>" required>
+                    <label class="material-label">Admin</label>
                 </div>
-                
+
                 <?= form_error('identitas', '<div class="text-danger">', '</div>') ?>
-                <button type="submit" class="btn event btn-nlc">Register</button>
+                <button type="submit" class="btn event btn-nlc">Tambah</button>
             </form>
         </div>
     </section>

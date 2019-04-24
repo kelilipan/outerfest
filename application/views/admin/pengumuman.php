@@ -152,7 +152,7 @@
                     <a class="scroll nav-link" href="<?= base_url() ?>homeadmin/dashboard">DASHBOARD</a>
                 </li>
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="<?= base_url() ?>homeadmin/peserta">PESERTA</a>
+                    <a class="scroll nav-link" href="<?= base_url() ?>c_peserta">PESERTA</a>
                 </li>
                 <li class="nav-item">
                     <a class="scroll nav-link" href="<?= base_url() ?>homeadmin/transaksi">TRANSAKSI</a>
@@ -193,7 +193,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <a><button class="btn btn-success mr-2" href="<?= base_url() ?>homeadmin/addpengumuman">Pengumuman Baru</button></a>
+                    <a><button class="btn btn-success mr-2" href="<?= base_url() ?>c_pengumuman/addpengumuman">Pengumuman Baru</button></a>
                     <input type="text" class="form-control" placeholder="Find an announcement" aria-label="Find ur girlfriends" aria-describedby="button-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-outline-primary" type="button" id="button-addon2">Search</button>

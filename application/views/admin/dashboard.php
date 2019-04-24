@@ -152,7 +152,7 @@
                     <a class="scroll nav-link" href="#">DASHBOARD</a>
                 </li>
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="<?= base_url() ?>homeadmin/peserta">PESERTA</a>
+                    <a class="scroll nav-link" href="<?= base_url() ?>c_peserta">PESERTA</a>
                 </li>
                 <li class="nav-item">
                     <a class="scroll nav-link" href="<?= base_url() ?>homeadmin/transaksi">TRANSAKSI</a>
@@ -224,58 +224,35 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Waluyo bin walidi</td>
-                            <td>NPC</td>
-                            <td>
-                                <span>Rp. 50.001,-</span>
-                                <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#buktiTransferModal" data-url="1.jpg" data-idpeserta="1">view</button></td>
-                            <td>
-                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-warning">Approve</button>
-                                    <button type="button" class="btn btn-primary">Edit</button>
-                                    <button type="button" class="btn btn-primary">Detail</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Waluyo bin walidi</td>
-                            <td>NPC</td>
-                            <td>
-                                <span>Rp. 50.002,-</span>
-                                <button type="button" class="btn btn-sm btn-success">view</button></td>
-                            <td>
-                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-warning">Approve</button>
-                                    <button type="button" class="btn btn-primary">Edit</button>
-                                    <button type="button" class="btn btn-primary">Detail</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
+                        
+                        <?php
+                        foreach ($peserta as $p) {
+                            ?>
+                        <tr> 
+                            
+                                <!-- <th scope="row">1</th> -->
+                                <td><?= $p->id_peserta ?></td>
+                                <td><?= $p->nama       ?></td>
+                                <td><?= $p->id_event   ?></td>
+                                <td>
+                                    <span>Rp. 50.000,-</span>
+                                    <button type="button" class="btn btn-sm btn-success">view</button></td>
+                                    <td>
+                                        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                            <button type="button" class="btn btn-warning">Approve</button>
+                                            <button type="button" class="btn btn-primary">Edit</button>
+                                            <button type="button" class="btn btn-primary">Detail</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <?php } ?>
+                                <tr>
                             <th scope="row">3</th>
                             <td>Waluyo bin walidi</td>
                             <td>NPC</td>
                             <td>
-                                <span>Rp. 50.003,-</span>
-                                <button type="button" class="btn btn-sm btn-success">view</button></td>
-                            <td>
-                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-warning">Approve</button>
-                                    <button type="button" class="btn btn-primary">Edit</button>
-                                    <button type="button" class="btn btn-primary">Detail</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">4</th>
-                            <td>Waluyo bin walidi</td>
-                            <td>NPC</td>
-                            <td>
-                                <span>Rp. 50.004,-</span>
-                                <button type="button" class="btn btn-sm btn-success">view</button></td>
+                                <span>Rp. 50.000,-</span>
+                                <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#buktiTransferModal" data-url="1.jpg" data-idpeserta="1">view</button></td>
                             <td>
                                 <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
                                     <button type="button" class="btn btn-warning">Approve</button>

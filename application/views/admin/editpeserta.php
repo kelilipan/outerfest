@@ -127,7 +127,8 @@
         <div class="mesh"></div>
         <div class="form-container animated fadeInUpShort">
             <h1>Edit Peserta</h1>
-            <form class="form" action="register_nlc" method="POST">
+            
+            <form class="form" action="<?php echo base_url()."c_peserta/edit_dataPeserta"; ?>" method="POST">
                 <div class="material-form nlc">
                     <input type="text" class="material-input" name="nama" value="<?= set_value('nama'); ?>" required>
                     <label class="material-label">Nama</label>
@@ -175,6 +176,7 @@
                 <?= form_error('identitas', '<div class="text-danger">', '</div>') ?>
                 <button type="submit" class="btn event btn-nlc">Update</button>
             </form>
+        
         </div>
     </section>
     <!-- end main -->

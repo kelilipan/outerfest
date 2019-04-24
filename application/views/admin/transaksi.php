@@ -149,10 +149,10 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="<?= base_url() ?>homeadmin/index">DASHBOARD</a>
+                    <a class="scroll nav-link" href="<?= base_url() ?>c_peserta/pesertadashboard">DASHBOARD</a>
                 </li>
                 <li class="nav-item">
-                    <a class="scroll nav-link" href="<?= base_url() ?>homeadmin/peserta">PESERTA</a>
+                    <a class="scroll nav-link" href="<?= base_url() ?>c_peserta">PESERTA</a>
                 </li>
                 <li class="nav-item">
                     <a class="scroll nav-link" href="<?= base_url() ?>homeadmin/transaksi">TRANSAKSI</a>
