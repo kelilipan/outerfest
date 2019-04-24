@@ -181,7 +181,7 @@
     <div class="dashboard-container">
         <div style="min-height: 100%;padding-bottom: 5rem;">
             <div class="alert alert-secondary">
-                Selamat datang, <b><?= $this->session('namaAdmin') ?></b> !
+                Selamat datang, <b><?= $this->session->userdata('namaAdmin') ?></b> !
             </div>
             <div class="container">
                 <div class="mt-4">
