@@ -3,6 +3,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Admin extends CI_Controller
 {
+    public function isLoggedIn()
+    {
+        if (!$this->session->userdata('emailAdmin')) {
+            redirect(base_url('admin/login'));
+        } else {
+            return false;
+        }
+    }
     public function index()
     {
         if (!$this->session->userdata('emailAdmin')) {
@@ -69,16 +77,19 @@ class Admin extends CI_Controller
     }
     public function pengumuman()
     {
+        $this->isLoggedIn();
         $data['pengumuman'] = $this->Pengumuman->fetch();
         $this->load->view('admin/pengumuman', $data);
     }
     public function peserta()
     {
+        $this->isLoggedIn();
         $data['peserta'] = $this->Peserta->fetch();
         $this->load->view('admin/peserta', $data);
     }
     public function transaksi()
     {
+        $this->isLoggedIn();
         $this->db->select('bukti_transfer.*,peserta.nama as nama_peserta,events.nama as nama_event');
         $this->db->from('bukti_transfer');
         $this->db->join('peserta', 'bukti_transfer.id_peserta = peserta.id_peserta', 'LEFT');
@@ -100,5 +111,14 @@ class Admin extends CI_Controller
     {
         $this->Pengumuman->editPengumuman();
         redirect('admin/pengumuman');
+    }
+    public function hapusPengumuman($id)
+    {
+        $this->Pengumuman->delete($id);
+        redirect('admin/pengumuman');
+    }
+    public function approve($id)
+    {
+        $this->Peserta->approve($id);
     }
 }

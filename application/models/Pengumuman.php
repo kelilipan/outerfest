@@ -30,4 +30,8 @@ class Pengumuman extends CI_Model
         ];
         $this->db->where('id_pengumuman', $id)->update('pengumuman', $data);
     }
+    public function delete($id)
+    {
+        $this->db->delete('pengumuman', array('id_pengumuman' => $id));
+    }
 }

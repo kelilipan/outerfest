@@ -222,7 +222,7 @@
                                 <td>
                                     <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
                                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editPengumuman" data-title="<?= $d['title'] ?>" data-id="<?= $d['id_pengumuman'] ?>" data-desc="<?= $d['description'] ?>">Edit</button>
-                                        <button type="button" class="btn btn-danger">Delete</button>
+                                        <a href="<?= base_url('admin/hapusPengumuman') ?>/<?= $d['id_pengumuman'] ?>" class="btn btn-danger">Delete</a>
                                     </div>
                                 </td>
                             </tr>
