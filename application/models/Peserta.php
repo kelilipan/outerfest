@@ -168,4 +168,9 @@ class Peserta extends CI_Model
         $where = array('id_peserta' => $id);
         $this->db->where($where)->update('peserta', $data);
     }
+    public function delete($id)
+    {
+        $this->db->delete('peserta', array('id_peserta' => $id));
+        $this->db->delete('bukti_transfer', array('id_peserta' => $id));
+    }
 }

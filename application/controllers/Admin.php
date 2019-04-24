@@ -115,6 +115,12 @@ class Admin extends CI_Controller
     public function hapusPengumuman($id)
     {
         $this->Pengumuman->delete($id);
+        redirect('admin/pengumuman');
+    }
+    public function hapusPeserta($id)
+    {
+        $this->Peserta->delete($id);
+        redirect('admin/peserta');
     }
     public function approve($id)
     {

@@ -226,7 +226,7 @@
                                     <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
                                         <button type="button" class="btn btn-primary">Edit</button>
                                         <button type="button" class="btn btn-primary">Detail</button>
-                                        <button type="button" class="btn btn-danger">Delete</button>
+                                        <a href="<?= base_url('admin/hapusPeserta') ?>/<?= $d['id_peserta'] ?>" class="btn btn-danger">Delete</a>
                                     </div>
                                 </td>
                             </tr>
